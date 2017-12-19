@@ -4,8 +4,9 @@ var navigation = {
 		var windowWidth = $(window).width();
 		if ( windowWidth >= 992 ) {
 
-		    var itemNav   	= $(".navigation-main li.with-sub-menu");
-		    itemNav.addClass('pos-unset')
+		    var itemNav = $(".navigation-main li.with-sub-menu");
+		    itemNav.addClass('pos-unset');
+		    itemNav.parents('.col-9').addClass('pos-unset');
 		      
 		    itemNav.on("mouseenter", function() {
 		    	var	subMenu 	= $(this).children('.mega-sub-menu'),
@@ -78,7 +79,7 @@ var header = {
 				$('.expanded-search input[type=text]').val('');
 				$('.expanded-search').removeClass('open fadeInDown');
 				$('header').find('.trigger-search').removeClass('active');
-				$('header').find('.trigger-search').parents('.col-9').removeClass('pos-unset');
+				$('.header-scroll').find('.trigger-search').parents('.col-9').removeClass('pos-unset');
 		    } 
 		    else if( st > mainHeaderHeight ) {
 	            $('header.header-scroll').addClass('show');

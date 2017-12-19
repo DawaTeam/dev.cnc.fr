@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/cnc-icon-font.css">
 </head>
 
-<body data-spy="scroll" data-target="#sticky-article-nav" data-offset="120">
+<body>
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -81,6 +81,13 @@ include "header-main.html"
                             <h1>Rapport d’activité de la Commission et des comités de classification des oeuvres cinématographiques du 1er janvier 2013 au 31 décembre 2015</h1>
                             <div class="share">
                                 <i class="icon icon-share"></i>
+                                <ul class="list-unstyled">
+                                    <li><a href=""><i class="icon icon-facebook"></i></a></li>
+                                    <li><a href=""><i class="icon icon-twitter"></i></a></li>
+                                    <li><a href=""><i class="icon icon-google-plus"></i></a></li>
+                                    <li><a href=""><i class="icon icon-linkedin"></i></a></li>
+                                    <li><a href=""><i class="icon icon-envelope"></i></a></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -93,7 +100,7 @@ include "header-main.html"
                             <img src="images/img-pdf-file-1.jpg" alt="">
                         </div>
                     </div>
-                    <div class="col-12 col-lg-9">
+                    <div class="col-12 col-lg-8">
                         <div class="infos">
                             <div class="category"><a href="" title="">SECTEUR</a></div>
                             <div class="tags">
@@ -231,8 +238,12 @@ include "footer.html"
 
 <script>
     $(document).ready(function() {
+        navigation.init();
+        header.stickySearch();
         header.sticky();
         stickyNav.init();
+        stickyShare.init();
+
     });
 </script>
 

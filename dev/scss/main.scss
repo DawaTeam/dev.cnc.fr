@@ -1042,10 +1042,10 @@ header {
                     text-transform: none;
                     opacity:0;
                     height: 0;
+                    visibility:hidden;
                     z-index: -999;
                     @extend .animated;
                     @include media-breakpoint-up(lg) {
-                        height:auto;
                         position:absolute;
                         top:111px;
                         left:0;
@@ -1740,9 +1740,21 @@ header {
 
     }
     &.publication {
+        .article-content {
+            margin-top: 0;
+        }
+        .picture {
+            img {
+                width:100%;
+                height:auto;
+            }
+        }
         .infos {
-            margin-bottom: 15px;
+            margin:20px 0 15px;
             text-align: left;
+            @include media-breakpoint-up(lg) {
+                margin:0 0 15px;
+            }
             .category {
                 margin-bottom: 5px;
                 font-family: "AkkuratBold";
@@ -1756,7 +1768,6 @@ header {
             }
         }
         .rebound {
-
             .picture {
                 img {
                     width:100%;
