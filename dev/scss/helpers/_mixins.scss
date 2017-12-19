@@ -1,0 +1,354 @@
+// Media Queries Breakpoints
+// @mixin breakpoint($point) {
+//   @if $point == lg {
+//     @media (min-width: $screen-lg-min) { @content; }
+//   }
+//   @else if $point == md {
+//     @media (min-width: $screen-md-min) { @content; }
+//   }
+//   @else if $point == sm {
+//     @media (min-width: $screen-sm-min)  { @content; }
+//   }
+//   @else if $point == max-xs {
+//     @media (max-width: $screen-xs-max)  { @content; }
+//   }
+//   @else if $point == max-sm {
+//     @media (max-width: $screen-sm-max)  { @content; }
+//   }
+//   @else if $point == max-md {
+//     @media (max-width: $screen-md-max)  { @content; }
+//   }
+// }
+
+@mixin boxshadow($offsetX, $offsetY, $spread, $colorR, $colorG, $colorB, $opacity, $two: false, $offsetX2:0, $offsetY2:0, $spread2:0, $colorR2:0, $colorG2:0, $colorB2:0, $opacity2:0 ) {
+    @if $two {
+      -webkit-box-shadow: $offsetX $offsetY $spread rgba($colorR, $colorG, $colorB, $opacity), $offsetX2 $offsetY2 $spread2 rgba($colorR2, $colorG2, $colorB2, $opacity2);
+      -moz-box-shadow: $offsetX $offsetY $spread rgba($colorR, $colorG, $colorB, $opacity), $offsetX2 $offsetY2 $spread2 rgba($colorR2, $colorG2, $colorB2, $opacity2);
+      -o-box-shadow: $offsetX $offsetY $spread rgba($colorR, $colorG, $colorB, $opacity), $offsetX2 $offsetY2 $spread2 rgba($colorR2, $colorG2, $colorB2, $opacity2);
+      box-shadow: $offsetX $offsetY $spread rgba($colorR, $colorB, $colorB, $opacity), $offsetX2 $offsetY2 $spread2 rgba($colorR2, $colorG2, $colorB2, $opacity2);
+    } @else {
+      -webkit-box-shadow: $offsetX $offsetY $spread rgba($colorR, $colorG, $colorB, $opacity);
+      -moz-box-shadow: $offsetX $offsetY $spread rgba($colorR, $colorG, $colorB, $opacity);
+      -o-box-shadow: $offsetX $offsetY $spread rgba($colorR, $colorG, $colorB, $opacity);
+      box-shadow: $offsetX $offsetY $spread rgba($colorR, $colorB, $colorB, $opacity);
+    }
+}
+
+@mixin textshadow($args...) {
+  -webkit-text-shadow: $args;
+  -moz-text-shadow: $args;
+  -o-text-shadow: $args;
+  text-shadow: $args;
+}
+
+@mixin bdradius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin linearGradient($top, $start, $bottom, $end){
+    background: $top; /* Old browsers */
+    background: -moz-linear-gradient(top,  $top  $start, $bottom $end); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop( $start,$top), color-stop($end,$bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  $top  $start,$bottom $end); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  $top  $start,$bottom $end); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  $top  $start,$bottom $end); /* IE10+ */
+    background: linear-gradient(to bottom,  $top  $start,$bottom $end); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin transition ($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+@mixin transform ($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  transform: $transforms;
+}
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+%flexbox { @include flexbox; }
+
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+%inline-flex { @include inline-flex; }
+
+@mixin flex-direction($value: row) {
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+  }
+  -webkit-flex-direction: $value;
+  -moz-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+  // Shorter version:
+  @mixin flex-dir($args...) { @include flex-direction($args...); }
+
+
+@mixin flex-wrap($value: nowrap) {
+  // No Webkit Box fallback.
+  -webkit-flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  @if $value == nowrap {
+    -ms-flex-wrap: none;
+  } @else { 
+    -ms-flex-wrap: $value; 
+  }
+  flex-wrap: $value;
+}
+
+@mixin flex-flow($values: (row nowrap)) {
+  // No Webkit Box fallback.
+  -webkit-flex-flow: $values;
+  -moz-flex-flow: $values;
+  -ms-flex-flow: $values;
+  flex-flow: $values;
+}
+
+@mixin flex-order($int: 0) {
+  -webkit-box-ordinal-group: $int;
+  -webkit-order: $int;
+  -moz-order: $int;
+  -ms-flex-order: $int;
+  order: $int;
+}
+
+@mixin flex-grow($int: 0) {
+  -webkit-box-flex: $int;
+  -webkit-flex-grow: $int;
+  -moz-flex-grow: $int;
+  -ms-flex-positive: $int;
+  flex-grow: $int;
+}
+
+@mixin flex-shrink($int: 1) {
+  -webkit-flex-shrink: $int;
+  -moz-flex-shrink: $int;
+  -ms-flex-negative: $int;
+  flex-shrink: $int;
+}
+
+@mixin flex-basis($value: auto) {
+  -webkit-flex-basis: $value;
+  -moz-flex-basis: $value;
+  -ms-flex-preferred-size: $value;
+  flex-basis: $value;
+}
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+    
+  // Set a variable to be used by box-flex properties
+  $fg-boxflex: $fg;
+
+  // Box-Flex only supports a flex-grow value so let's grab the
+  // first item in the list and just return that.
+  @if type-of($fg) == 'list' {
+    $fg-boxflex: nth($fg, 1);
+  }
+
+  -webkit-box-flex: $fg-boxflex;
+  -webkit-flex: $fg $fs $fb;
+  -moz-box-flex: $fg-boxflex;
+  -moz-flex: $fg $fs $fb;
+  -ms-flex: $fg $fs $fb;
+  flex: $fg $fs $fb;
+}
+
+
+@mixin flex-justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;    
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
+}
+
+@mixin flex-align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
+}
+
+@mixin flex-align-self($value: auto) {
+  // No Webkit Box Fallback.
+  -webkit-align-self: $value;
+  -moz-align-self: $value;
+  @if $value == flex-start {
+    -ms-flex-item-align: start;
+  } @else if $value == flex-end {
+    -ms-flex-item-align: end;
+  } @else {
+    -ms-flex-item-align: $value;
+  }
+  align-self: $value;
+}
+
+@mixin flex-align-content($value: stretch) {
+  // No Webkit Box Fallback.
+  -webkit-align-content: $value;
+  -moz-align-content: $value;
+  @if $value == flex-start {
+    -ms-flex-line-pack: start;
+  } @else if $value == flex-end {
+    -ms-flex-line-pack: end;
+  } @else {
+    -ms-flex-line-pack: $value;
+  }
+  align-content: $value;
+}
+
+@mixin keyframes($animation-name) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }  
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+
+
+@mixin animations ($animation-name, $duration, $delay, $ease, $iteration: null) {
+    -webkit-animation-name: $animation-name;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-timing-function: $ease;
+    -webkit-animation-iteration-count: #{$iteration}; 
+    -webkit-animation-fill-mode: forwards; 
+
+    -moz-animation-name: $animation-name;
+    -moz-animation-duration: $duration;
+    -moz-animation-delay: $delay;
+    -moz-animation-timing-function: $ease;
+    -moz-animation-iteration-count: #{$iteration}; 
+    -moz-animation-fill-mode: forwards; 
+
+    -o-animation-name: $animation-name;
+    -o-animation-duration: $duration;
+    -o-animation-delay: $delay;
+    -o-animation-timing-function: $ease;
+    -o-animation-iteration-count: #{$iteration}; 
+    -o-animation-fill-mode: forwards; 
+
+    animation-name: $animation-name;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-timing-function: $ease;
+    animation-iteration-count: #{$iteration}; 
+    animation-fill-mode: forwards; 
+  }
+
+@mixin force-wrap {
+  white-space: pre;           // CSS 2.0
+  white-space: pre-wrap;      // CSS 2.1
+  white-space: pre-line;      // CSS 3.0
+  white-space: -pre-wrap;     // Opera 4-6
+  white-space: -o-pre-wrap;   // Opera 7
+  white-space: -moz-pre-wrap; // Mozilla
+  word-wrap: break-word;      // IE 5+
+}
+
+
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include translate(-50%,-50%);
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include translate(-50%,0);
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include translate(0,-50%);
+  }
+}
+
+
+@mixin font-face($font-name, $file, $family, $category:"") {
+    $filepath: "../fonts/" + $family + "/" + $file;
+    @font-face {
+        font-family: "#{$font-name}";
+        src: url($filepath + ".eot");
+        src: url($filepath + ".eot?#iefix") format('embedded-opentype'), url($filepath + ".woff") format('woff'), url($filepath + ".ttf")  format('truetype'), url($filepath + ".svg#" + $font-name + "") format('svg'), url($filepath + ".woff2") format('woff2');
+    }
+    %#{$font-name} {
+        font: {
+            @if $category != "" {
+                family: "#{$font-name}", #{$category};
+            }
+            @else {
+                family: "#{$font-name}";
+                weight: normal;
+            }
+        }
+    }
+}

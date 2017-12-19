@@ -1,0 +1,20 @@
+{
+  "name": "CNC",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "author": "Dawa",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^2.3.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-includes": "^1.0.0",
+    "grunt-newer": "^1.3.0",
+    "grunt-postcss": "^0.9.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-webfont": "^1.6.0"
+  }
+}
