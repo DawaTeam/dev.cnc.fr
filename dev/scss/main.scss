@@ -1090,14 +1090,20 @@ header {
                         > li {
                             background: none;
                             border: none;
+                            line-height: 2rem;
                             @include media-breakpoint-up(lg) {
                                 margin: 0;
                                 padding:0 20px;
-                                width: calc( (100% / 5) - (15px - 15px / 5) );
+                                width: calc( (100% / 6) - (15px - 15px / 6) );
                             }
                             &:last-child {
                                 @include media-breakpoint-down(lg) {
                                     a { color:$green; }
+                                }
+                            }
+                            &.highlight {
+                                a {
+                                    color:$green;
                                 }
                             }
                            
@@ -1111,7 +1117,9 @@ header {
                                     padding: 0;
                                     margin: 7px 0;
                                     line-height: normal;
+
                                     a {
+                                        font-family: "AkkuratRegular";
                                         font-size: 1.4rem;
                                         color:#FFF;
                                         @include media-breakpoint-up(lg) {
@@ -1357,8 +1365,8 @@ header {
             @include media-breakpoint-up(lg) {
                 margin: 0;
                 position:absolute;
+                top:0;
                 right: -60px;
-                @include center(y);
                 &.fixed {
                     position: fixed;
                     top: 120px;

@@ -8,21 +8,19 @@ var navigation = {
 		    itemNav.addClass('pos-unset');
 		    itemNav.parents('.col-9').addClass('pos-unset');
 		      
-		    itemNav.on("mouseenter", function() {
-		    	var	subMenu 	= $(this).children('.mega-sub-menu'),
-		    		parentItem 	= $(this).parents('.col-9');
-		    		
-		    	$(this).addClass('active');
-		    	parentItem.addClass('pos-unset');
-		    	subMenu.addClass('open fadeIn');
+		    itemNav.on({
+	    		mouseenter: function() {
+	    			var	subMenu = $(this).children('.mega-sub-menu');
+			    	$(this).addClass('active');
+			    	subMenu.addClass('open fadeIn');
+	    		},
+	    		mouseleave: function() {
+	    			var	subMenu = $(this).children('.mega-sub-menu');
+			    	$(this).removeClass('active');
+			    	subMenu.removeClass('fadeIn').addClass('fadeOut').removeClass('open fadeOut');
+		    	}
 		    });
-		    itemNav.on("mouseleave", function() {
-		    	var	subMenu 	= $(this).children('.mega-sub-menu'),
-		    		parentItem 	= $(this).parents('.col-9');
-		    	$(this).removeClass('active');
-		    	parentItem.removeClass('pos-unset');
-		    	subMenu.removeClass('fadeIn').addClass('fadeOut').removeClass('open fadeOut');
-		    });
+		   
 		}
 		else {
 			var navTrigger   	= $(".header-mobile .nav-icon"),
@@ -30,13 +28,13 @@ var navigation = {
 	      		subMenuTrigger	= $(".navigation-main li.with-sub-menu i");
 	      
 		    navTrigger.on("touchend click", function() {
-		      $(this).toggleClass('open');
-		      nav.toggleClass('open');
-		      subMenuTrigger.parents('.col-9').toggleClass('open pos-unset');
-		      if ( !$(this).hasClass('open') ) {
+		    	$(this).toggleClass('open');
+		    	nav.toggleClass('open');
+		    	subMenuTrigger.parents('.col-9').addClass('pos-unset');
+		    	if ( !$(this).hasClass('open') ) {
 		      		$('.mega-sub-menu').removeClass('open');
 		      		subMenuTrigger.parent().removeClass('active');
-		      }
+		      	}
 		    });
 		    subMenuTrigger.on('touchend click', function() {
 		    	var	subMenu 	= $(this).siblings('.mega-sub-menu'),
@@ -79,7 +77,12 @@ var header = {
 				$('.expanded-search input[type=text]').val('');
 				$('.expanded-search').removeClass('open fadeInDown');
 				$('header').find('.trigger-search').removeClass('active');
-				$('.header-scroll').find('.trigger-search').parents('.col-9').removeClass('pos-unset');
+
+				if ( $(window).width() <= 991 ) {
+					$(".header-mobile .nav-icon").removeClass('open');
+					$("nav.navigation-main").removeClass('open');
+				}
+
 		    } 
 		    else if( st > mainHeaderHeight ) {
 	            $('header.header-scroll').addClass('show');
@@ -98,7 +101,7 @@ var header = {
 			
 			searchExpand.toggleClass('open fadeInDown');
 			$(this).toggleClass('active');
-			$(this).parents('.col-9').toggleClass('pos-unset');
+			$(this).parents('.col-9').addClass('pos-unset');
 			
 			if ( $(this).hasClass('active') ) {
 				backDrop.appendTo($('body'));
