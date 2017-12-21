@@ -40,6 +40,9 @@ h2 {
     @include media-breakpoint-up(lg) {
         font-size: 3rem;
     }
+    &.inline {
+        display: inline-block;
+    }
 }
 
 h3 {
@@ -169,7 +172,7 @@ a {
 }
 
 .button {
-    padding:20px;
+    padding:15px 20px;
     display: inline-block;
     font-family: "AkkuratBold" ;
     text-align: center;
@@ -186,7 +189,7 @@ a {
         }
     }
     &.button-green {
-        padding:20px 30px;
+        padding:15px 30px;
         border: none;
         background:$green;
         color:#FFF;
@@ -487,8 +490,11 @@ input[type="email"] {
         }
         a { color:$green;}
     }
-    &.table-striped tbody tr:nth-of-type(odd) {
+    &.table-striped tbody tr:nth-of-type(even) {
         background:$grey-lighter;
+    }
+    &.table-striped tbody tr:nth-of-type(odd) {
+        background:#FFF;
     }
 }
 
@@ -541,6 +547,12 @@ input[type="email"] {
             padding: 40px 20px;
             font-family: Arial;
             font-size: 1.5rem;
+
+            ul.simple {
+                li {
+                    margin-bottom: 15px;
+                }
+            }
         }
     }
 }
@@ -644,7 +656,8 @@ input[type="email"] {
     }
 }
 .pos-unset {
-    position:unset!important;
+    position:inherit!important;
+    //position:inherit;
 }
 
 hr {
@@ -824,8 +837,10 @@ header {
         }
     }
     .header-top {
-        @extend .clearfix;
-        padding: 10px 20px;
+        @extend .flex-organization;
+        @include flex-align-items(center);
+        @include flex-justify-content(flex-end);
+        padding:10px 15px 10px 0;
         @include media-breakpoint-up(lg) {
             background:#dedede;
         }
@@ -1188,6 +1203,7 @@ header {
         display: inline-block;
         width:60%;
         input[type="text"] {
+            padding:10px 20px;
             width:70%;
             height: 40px;
             border: none;
@@ -1213,6 +1229,7 @@ header {
             margin-left: -3px;
             width: 40px;
             height: 40px;
+            float: right;
             border: none;
             background: #FFF;
             text-align: center;
@@ -1440,6 +1457,7 @@ header {
                 }
                 li {
                     display: inline-block;
+                    padding: 0;
                     margin: 0 5px;
                     &:before {display: none;}
                     i.icon-envelope {
@@ -1547,11 +1565,13 @@ header {
             &.simple {
                 font-size: 1.4rem;
                 li {
+                    padding-left: 0;
                     &:before { display: none;}
                     strong { font-weight: bold;}
                     a { 
                         color:$green;
                     }
+                    p { margin-bottom: 0;}
                 }
             }
         }
@@ -1921,8 +1941,10 @@ header {
 }
 .key-figures {
     padding: 50px 0;
+    position: relative;
     background: linear-gradient(to top, #FFFFFF 0%,#62c9be 100%);
     color:#14a292;
+    z-index: 1;
     .key-figure-item {
         text-align: center;
         margin-bottom: 60px;
@@ -2053,6 +2075,7 @@ header {
             font-size: 2rem;
             a { 
                 color:$black;
+                text-decoration: none;
                 &:hover {
                     color:$green;
                 }
