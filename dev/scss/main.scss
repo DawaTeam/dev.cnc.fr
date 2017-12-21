@@ -40,6 +40,9 @@ h2 {
     @include media-breakpoint-up(lg) {
         font-size: 3rem;
     }
+    &.inline {
+        display: inline-block;
+    }
 }
 
 h3 {
@@ -116,14 +119,15 @@ a {
             }
         }
         &.round {
-            vertical-align: middle;
+            vertical-align: sub;
             i {
                 margin-right: 15px;
                 padding: 5px;
+                float: left;
                 border-radius: 100%;
                 border: 2px solid $grey-light;
                 text-align: center;
-                line-height: 35px;
+                //line-height: 35px;
             }
         }
         &.focus-link {
@@ -148,10 +152,27 @@ a {
             }
         }
     }
+    &.light {
+        a {
+            color:#FFF;
+
+            i {
+                color:#FFF;
+            }
+            &.round {
+                i {
+                    border-color: #FFF;
+                }
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .button {
-    padding:20px;
+    padding:15px 20px;
     display: inline-block;
     font-family: "AkkuratBold" ;
     text-align: center;
@@ -168,7 +189,7 @@ a {
         }
     }
     &.button-green {
-        padding:20px 30px;
+        padding:15px 30px;
         border: none;
         background:$green;
         color:#FFF;
@@ -469,8 +490,11 @@ input[type="email"] {
         }
         a { color:$green;}
     }
-    &.table-striped tbody tr:nth-of-type(odd) {
+    &.table-striped tbody tr:nth-of-type(even) {
         background:$grey-lighter;
+    }
+    &.table-striped tbody tr:nth-of-type(odd) {
+        background:#FFF;
     }
 }
 
@@ -523,6 +547,12 @@ input[type="email"] {
             padding: 40px 20px;
             font-family: Arial;
             font-size: 1.5rem;
+
+            ul.simple {
+                li {
+                    margin-bottom: 15px;
+                }
+            }
         }
     }
 }
@@ -536,6 +566,7 @@ input[type="email"] {
         margin: 0;
         padding: 0;
         li {
+            padding: 0;
             &:before{display: none;}
             a {
                 padding: 15px 0 15px 20px;
@@ -562,9 +593,7 @@ input[type="email"] {
         }
     }
 }
-.article-content-scroll {
 
-}
 /** Breadcrumbs **/
 .breadcrumbs {
     padding:20px 0;
@@ -578,16 +607,17 @@ input[type="email"] {
         li {
             display: inline-block;
             font-size: 1.3rem;
-            &:after {
+            &:before {
                 content: "\e903";
                 font-family: "CncIcon";
                 margin: 0 5px;
-                color: $black;
+                color: $grey;
             }
-            &:last-child {
-                &:after {display: none;}
+            &:first-child {
+                &:before {display: none;}
             }
             &.active {
+                &:before { color:$black;}
                 a {
                     color:$black;
                     &:hover {
@@ -626,7 +656,8 @@ input[type="email"] {
     }
 }
 .pos-unset {
-    position:unset!important;
+    position:inherit!important;
+    //position:inherit;
 }
 
 hr {
@@ -806,8 +837,10 @@ header {
         }
     }
     .header-top {
-        @extend .clearfix;
-        padding: 10px 20px;
+        @extend .flex-organization;
+        @include flex-align-items(center);
+        @include flex-justify-content(flex-end);
+        padding:10px 15px 10px 0;
         @include media-breakpoint-up(lg) {
             background:#dedede;
         }
@@ -1170,6 +1203,7 @@ header {
         display: inline-block;
         width:60%;
         input[type="text"] {
+            padding:10px 20px;
             width:70%;
             height: 40px;
             border: none;
@@ -1195,6 +1229,7 @@ header {
             margin-left: -3px;
             width: 40px;
             height: 40px;
+            float: right;
             border: none;
             background: #FFF;
             text-align: center;
@@ -1422,6 +1457,7 @@ header {
                 }
                 li {
                     display: inline-block;
+                    padding: 0;
                     margin: 0 5px;
                     &:before {display: none;}
                     i.icon-envelope {
@@ -1459,6 +1495,7 @@ header {
         }
         
         .intro {
+            margin-bottom: 40px;
             font-family: "AkkuratRegular";
             font-size: 2.2rem;
             line-height: 3.2rem;
@@ -1488,13 +1525,14 @@ header {
             padding-left: 35px;
             border-left: 5px solid $green;
             h3 {
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 font-family: "AkkuratBold";
                 font-size: 1.8rem;
                 text-transform: uppercase;
                 color:$green;
             }
             .subtitle {
+
                 font-weight: bold;
                 a {
                     font-weight: normal;
@@ -1506,15 +1544,35 @@ header {
             a { 
                 color:$green;
             }
+            ul {
+                margin-top: 20px;
+            }
         }
         ul {
             margin-bottom: 40px;
             list-style: none;
-            li:before {
-                content:"•";
-                color:$green;
-                margin-right: 15px;
-                
+            li {
+                position: relative;
+                padding-left: 20px;
+                &:before {
+                    content:"•";
+                    color:$green;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+            &.simple {
+                font-size: 1.4rem;
+                li {
+                    padding-left: 0;
+                    &:before { display: none;}
+                    strong { font-weight: bold;}
+                    a { 
+                        color:$green;
+                    }
+                    p { margin-bottom: 0;}
+                }
             }
         }
         .quote {
@@ -1734,18 +1792,26 @@ header {
             
         }
     }
-    .type, .applicant {
-        margin-bottom: 3px;
-        font-family: Arial;
-        font-size: 1.4rem;
-        .title-type, .title-applicant {
-            display: inline-block;
-            font-weight: bold;
-        }
-        a {
+    ul {
+        margin-bottom: 40px;
+        list-style: none;
+        li:before {
+            content:"•";
             color:$green;
+            margin-right: 15px;
+            
         }
-
+        &.simple {
+            font-family: Arial;
+            font-size: 1.4rem;
+            li {
+                &:before { display: none;}
+                strong { font-weight: bold;}
+                a { 
+                    color:$green;
+                }
+            }
+        }
     }
     &.publication {
         .article-content {
@@ -1774,6 +1840,7 @@ header {
                     text-decoration: none;
                 }
             }
+            ul.simple {margin-bottom: 0;}
         }
         .rebound {
             .picture {
@@ -1800,6 +1867,23 @@ header {
                 }
             }
             .excerpt { font-size: 1.5rem;}
+        }
+    }
+    &.dispositif {
+        h1 {
+            margin-top: 0;
+            text-align: left;
+        }
+        .download-block {
+            padding:30px;
+            background:$green;
+            color:#FFF;
+            .title {
+                margin-bottom: 25px;
+                font-family: "AkkuratBold";
+                font-size: 1.8rem;
+                text-transform: uppercase;
+            }
         }
     }
 }
@@ -1857,8 +1941,10 @@ header {
 }
 .key-figures {
     padding: 50px 0;
+    position: relative;
     background: linear-gradient(to top, #FFFFFF 0%,#62c9be 100%);
     color:#14a292;
+    z-index: 1;
     .key-figure-item {
         text-align: center;
         margin-bottom: 60px;
@@ -1989,6 +2075,7 @@ header {
             font-size: 2rem;
             a { 
                 color:$black;
+                text-decoration: none;
                 &:hover {
                     color:$green;
                 }

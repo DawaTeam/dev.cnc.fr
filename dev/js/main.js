@@ -27,8 +27,12 @@ var navigation = {
 	      		nav     		= $("nav.navigation-main"),
 	      		subMenuTrigger	= $(".navigation-main li.with-sub-menu i");
 	      
-		    navTrigger.on("touchend click", function() {
-		    	$(this).toggleClass('open');
+		    navTrigger.on("click", function() {
+		    	if ( !$(this).hasClass('open') ) {
+		    		$(this).addClass('open');
+		    	} else {
+		    		$(this).removeClass('open');
+		    	}
 		    	nav.toggleClass('open');
 		    	subMenuTrigger.parents('.col-9').addClass('pos-unset');
 		    	if ( !$(this).hasClass('open') ) {
@@ -36,7 +40,7 @@ var navigation = {
 		      		subMenuTrigger.parent().removeClass('active');
 		      	}
 		    });
-		    subMenuTrigger.on('touchend click', function() {
+		    subMenuTrigger.on('click', function() {
 		    	var	subMenu 	= $(this).siblings('.mega-sub-menu'),
 		    		parentItem 	= $(this).parents('.col-9');
 
@@ -83,7 +87,7 @@ var header = {
 					$("nav.navigation-main").removeClass('open');
 				}
 
-		    } 
+		    } 	
 		    else if( st > mainHeaderHeight ) {
 	            $('header.header-scroll').addClass('show');
 		        $('header.header-scroll').removeClass('hide');
@@ -94,7 +98,7 @@ var header = {
 	stickySearch : function() {
 		var searchTrigger 	= $('header').find('.trigger-search');
 			
-		searchTrigger.on('touchend click', function() {
+		searchTrigger.on('click', function() {
 			var searchExpand	= $(this).siblings('.expanded-search'),
 				backDrop		= $('<div class="backdrop"/>'),
 				searchInput		= searchExpand.find('input[type=text]');
@@ -172,14 +176,10 @@ var stickyShare = {
 	        }
 		});
 
-		share.on('touchend click', function() {
+		share.on('click', function() {
 			var shareOptions = $(this).children("ul");
 			$(this).toggleClass('active');
-			if (windowWidth >= 992) {
-				shareOptions.toggleClass('open fadeInDown');
-			} else {
-				shareOptions.toggleClass('open fadeIn');
-			}
+			shareOptions.toggleClass('open fadeIn');
 
 		})
 	}
