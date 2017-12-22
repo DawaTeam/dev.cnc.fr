@@ -3,10 +3,32 @@ var navigation = {
 	init : function() {
 		var windowWidth = $(window).width();
 		if ( windowWidth >= 992 ) {
-
+		    
 		    var itemNav = $(".navigation-main li.with-sub-menu");
 		    itemNav.addClass('pos-unset');
 		    itemNav.parents('.col-9').addClass('pos-unset');
+			
+			if (Modernizr.touchevents) {
+				itemNav.one("click", false, function(e){
+					console.log($(this));
+			    	e.preventDefault();
+			    	var redirectUrl = $(this).children('a').attr('href');
+			    	var	subMenu = $(this).children('.mega-sub-menu');
+			    	window.location = redirectUrl;
+			    	$(this).toggleClass('active');
+			    	subMenu.toggleClass('open fadeIn');
+
+			    	if ( $(this).hasClass('active') ) {
+			    		
+			    	}
+			   	});
+			   	$('.header-bottom, .header-top').on("click", function() {
+			   		itemNav.removeClass('active');
+			   		$('.mega-sub-menu').removeClass('active');
+			   		
+			   	})
+			}
+
 		      
 		    itemNav.on({
 	    		mouseenter: function() {
