@@ -4,18 +4,17 @@ var navigation = {
 		var windowWidth = $(window).width();
 		if ( windowWidth >= 992 ) {
 		    
-		    var itemNav = $(".navigation-main li.with-sub-menu");
-		    itemNav.addClass('pos-unset');
+		    var itemNav = $(".navigation-main li.with-sub-menu a");
+		    itemNav.parent("li").addClass('pos-unset');
 		    itemNav.parents('.col-9').addClass('pos-unset');
 			
 			if (Modernizr.touchevents) {
 				itemNav.one("click", false, function(e){
-					console.log($(this));
 			    	e.preventDefault();
-			    	var redirectUrl = $(this).children('a').attr('href');
-			    	var	subMenu = $(this).children('.mega-sub-menu');
+			    	var redirectUrl = $(this).attr('href');
+			    	var	subMenu = $(this).siblings('.mega-sub-menu');
 			    	window.location = redirectUrl;
-			    	$(this).toggleClass('active');
+			    	$(this).parent('li').toggleClass('active');
 			    	subMenu.toggleClass('open fadeIn');
 
 			    	if ( $(this).hasClass('active') ) {
@@ -23,7 +22,7 @@ var navigation = {
 			    	}
 			   	});
 			   	$('.header-bottom, .header-top').on("click", function() {
-			   		itemNav.removeClass('active');
+			   		itemNav.parent('li').removeClass('active');
 			   		$('.mega-sub-menu').removeClass('active');
 			   		
 			   	})
@@ -32,13 +31,13 @@ var navigation = {
 		      
 		    itemNav.on({
 	    		mouseenter: function() {
-	    			var	subMenu = $(this).children('.mega-sub-menu');
-			    	$(this).addClass('active');
+	    			var	subMenu = $(this).siblings('.mega-sub-menu');
+			    	$(this).parent('li').addClass('active');
 			    	subMenu.addClass('open fadeIn');
 	    		},
 	    		mouseleave: function() {
-	    			var	subMenu = $(this).children('.mega-sub-menu');
-			    	$(this).removeClass('active');
+	    			var	subMenu = $(this).siblings('.mega-sub-menu');
+			    	$(this).parent('li').removeClass('active');
 			    	subMenu.removeClass('fadeIn').addClass('fadeOut').removeClass('open fadeOut');
 		    	}
 		    });
@@ -177,8 +176,22 @@ var accordion = {
 /* # STICKY SCROLLSPY NAV # */
 var stickyNav = {
 	init: function() {
+		//Polyfill
 		var elements = $('.sticky-nav');
 		Stickyfill.add(elements);
+
+		// Add Offset on click
+		var navOffset = $('.header-scroll').height();
+		$('.sticky-nav ul li a').on('click', function(e) {
+		    var href = $(this).attr('href');
+		    e.preventDefault();
+		    console.log($(this));
+
+		    // Explicitly scroll to where the browser thinks the element
+		    // is, but apply the offset.
+		    $(href)[0].scrollIntoView();
+		    window.scrollBy(0, -navOffset-30);
+		});
 	}
 }
 /* # STICKY SHARE ARTICLE # */

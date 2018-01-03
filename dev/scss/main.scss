@@ -566,7 +566,7 @@ input[type="email"] {
         margin: 0;
         padding: 0;
         li {
-            padding: 0;
+            padding: 0!important;
             &:before{display: none;}
             a {
                 padding: 15px 0 15px 20px;
@@ -978,7 +978,6 @@ header {
                 border-bottom: 3px solid #363636;
                 list-style-type: none;
                 position: relative;
-                cursor:pointer;
                 &:last-child{ border: none;}
                 @include media-breakpoint-up (lg) {
                     padding:15px 10px;
@@ -988,15 +987,6 @@ header {
                 }
                 @include media-breakpoint-up (xl) {
                     padding: 15px;
-                }
-                &:hover {
-                    a {
-                        text-decoration: none;
-                        color:$green;
-                        &:after {
-                            width: 100%;
-                        }
-                    }
                 }
                 &.active {
                     a {
@@ -1022,6 +1012,9 @@ header {
                         &:after {
                             background:#FFF;
                         }
+                        &:hover {
+                            color:#FFF;
+                        }
                     }
                 }
 
@@ -1046,7 +1039,16 @@ header {
                             left: 0;
                             bottom: -6px;
                             background:$green;
+                            opacity:0;
                             transition:width .25s ease-in;
+                        }
+                        &:hover {
+                            text-decoration: none;
+                            color:$green;
+                            &:after {
+                                width: 100%;
+                                opacity:1;
+                            }
                         }
 
                     }
@@ -1150,7 +1152,8 @@ header {
                                 text-align: left;
                                 li {
                                     padding: 0;
-                                    margin: 7px 0;
+                                    margin: 15px 0;
+                                    display: list-item;
                                     line-height: normal;
 
                                     a {
@@ -2084,7 +2087,7 @@ header {
         }
         h3 {
             margin-bottom: 20px;
-            font-family: "Akkurat-Bold";
+            font-family: "AkkuratBold";
             font-size: 2rem;
             a { 
                 color:$black;

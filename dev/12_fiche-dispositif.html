@@ -27,30 +27,30 @@ include "header-main.html"
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <ol vocab="http://schema.org/" typeof="BreadcrumbList" class="list-unstyled">
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Accueil</span>
+                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="list-unstyled">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Accueil</span>
                         </a>
-                       <meta property="position" content="1">
+                       <meta itemprop="position" content="1">
                     </li>
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Professionnels</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Professionnels</span>
                         </a>
-                        <meta property="position" content="2">
+                        <meta itemprop="position" content="2">
                     </li>
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Aides et financements</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Aides et financements</span>
                         </a>
-                        <meta property="position" content="3">
+                        <meta itemprop="position" content="3">
                     </li>
-                    <li property="itemListElement" typeof="ListItem" class="active">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Aide au développement d’œuvres cinématographiques de longue durée</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Aide au développement d’œuvres cinématographiques de longue durée</span>
                         </a>
-                        <meta property="position" content="4">
+                        <meta itemprop="position" content="4">
                     </li>
                 </ol> 
             </div>
@@ -119,9 +119,10 @@ include "header-main.html"
                             En option et achat de droits d'adaptation cinématographique d'œuvre littéraire ou de scénario original. En écriture et réécriture.</div>
 
                             <ul class="list-unstyled simple">
-                                <li><strong>Secteur</strong> : cinéma</li>
-                                <li><strong>Phase d’intervention</strong> : développement, production</li>
-                                <li><strong>Type de soutien</strong> : long métrage</li>
+                                <li><strong>Secteur</strong> : <a href="" title="">cinéma</a></li>
+                                <li><strong>Phase du projet</strong> : développement, production</li>
+                                <li><strong>Type du projet</strong> : long métrage</li>
+                                <li><strong>Type d’aide</strong> : sélectif</li>
                                 <li><strong>Demandeur</strong> : producteur</li>
                             </ul>
                             <div class="focus">
@@ -333,7 +334,7 @@ include "header-main.html"
                             </ul>
                         </nav>
                     </div>
-                    <div class="col-12 col-lg-9">
+                    <div class="col-12 col-xl-9">
                         <div class="article-content-scroll">
                             <hr>
                             <h2 id="conditions-d-eligibilite-des-societes-de-production">Conditions d’éligibilité des sociétés de production</h2>
@@ -422,13 +423,13 @@ include "header-main.html"
                                     </td>
                                     <td>
                                         <span class="date">Mardi 30 mai 2017</span>
-                                        <a href="" title="">Ajouter à mon agenda</a>
+                                        <a href="" title="" rel="nofollow">Ajouter à mon agenda</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <span class="date">Du Mardi 30 mai 2017 au mardi 06 juin 2017</span>
-                                        <a href="" title="">Ajouter à mon agenda</a>
+                                        <a href="" title="" rel="nofollow">Ajouter à mon agenda</a>
                                     </td>
                                     <td>
                                         <span class="date">Date non définie</span>
@@ -448,7 +449,7 @@ include "header-main.html"
                         <hr>
                         <h2 id="composition-des-commissions" class="inline">Composition de la commission</h2>
                         <a href="" title="" class="button button-outline float-right">Voir les décisions de nomination</a>
-                        <h3>Composition de la commission</h3>
+                        <!-- <h3>Composition de la commission</h3> -->
                         
                         <strong>Présidente :</strong> 
                         <ul class="list-unstyle simple">

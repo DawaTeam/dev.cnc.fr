@@ -27,30 +27,30 @@ include "header-simple.html"
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <ol vocab="http://schema.org/" typeof="BreadcrumbList" class="list-unstyled">
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Accueil</span>
+                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="list-unstyled">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Accueil</span>
                         </a>
-                       <meta property="position" content="1">
+                       <meta itemprop="position" content="1">
                     </li>
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Cinéma</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Cinéma</span>
                         </a>
-                        <meta property="position" content="2">
+                        <meta itemprop="position" content="2">
                     </li>
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Actualités</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Actualités</span>
                         </a>
-                        <meta property="position" content="3">
+                        <meta itemprop="position" content="3">
                     </li>
-                    <li property="itemListElement" typeof="ListItem" class="active">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">La classification des œuvres cinématographiques</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">La classification des œuvres cinématographiques</span>
                         </a>
-                        <meta property="position" content="4">
+                        <meta itemprop="position" content="4">
                     </li>
                 </ol> 
             </div>
@@ -73,9 +73,9 @@ include "header-simple.html"
 </section>
 <section class="single">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
-                <article>
+        <article>
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 align-self-center">
                     <div class="article-head">
                         <div class="article-title">
                             <h1>La classification des œuvres cinématographiques</h1>
@@ -117,7 +117,8 @@ include "header-simple.html"
                         </div>  
                         <div class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, ipsum sapiente quis veritatis praesentium commodi dolore amet corporis cumque explicabo, doloremque labore necessitatibus, dignissimos minus! Ipsum, nisi, praesentium. Minima, aliquam.</div>
                     </div>
-
+                </div>
+                <div class="col-12">
                     <section class="article-content">
                         <div class="row">
                             <div class="col-xl-2 d-none d-xl-block">
@@ -138,7 +139,7 @@ include "header-simple.html"
                                     </ul>
                                 </nav>
                             </div>
-                            <div class="col-12 col-xl-10">
+                            <div class="col-12 col-xl-9">
                                 <div class="article-content-scroll">
                                     <hr>
                                     <h2 id="proteger-sans-censurer">Protéger sans censurer</h2>
@@ -235,9 +236,9 @@ include "header-simple.html"
                             </div>
                         </div>
                     </section>
-                </article>
+                </div>
             </div>
-        </div>
+        </article>
     </div>
     <section class="key-figures">
         <div class="container">
@@ -286,7 +287,7 @@ include "header-simple.html"
     </section>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-lg-10">
+            <div class="col-12">
                 <article>
                     <div class="article-content">
                         <div class="row">
@@ -308,7 +309,7 @@ include "header-simple.html"
                                     </ul>
                                 </nav>
                             </div>
-                            <div class="col-12 col-lg-10">
+                            <div class="col-12 col-xl-9">
                                 <div class="article-content-scroll">
                                     <hr>
                                     <h2 id="focus-sur-la-reforme-de-la-classification-de-2017">Focus sur La réforme de la classification en 2017</h2>
