@@ -4,17 +4,17 @@ var navigation = {
 		var windowWidth = $(window).width();
 		if ( windowWidth >= 992 ) {
 		    
-		    var itemNav = $(".navigation-main li.with-sub-menu a");
-		    itemNav.parent("li").addClass('pos-unset');
+		    var itemNav = $(".navigation-main li.with-sub-menu");
+		    itemNav.addClass('pos-unset');
 		    itemNav.parents('.col-9').addClass('pos-unset');
 			
 			if (Modernizr.touchevents) {
 				itemNav.one("click", false, function(e){
 			    	e.preventDefault();
 			    	var redirectUrl = $(this).attr('href');
-			    	var	subMenu = $(this).siblings('.mega-sub-menu');
+			    	var	subMenu = $(this).children('.mega-sub-menu');
 			    	window.location = redirectUrl;
-			    	$(this).parent('li').toggleClass('active');
+			    	$(this).toggleClass('active');
 			    	subMenu.toggleClass('open fadeIn');
 
 			    	if ( $(this).hasClass('active') ) {
@@ -22,7 +22,7 @@ var navigation = {
 			    	}
 			   	});
 			   	$('.header-bottom, .header-top').on("click", function() {
-			   		itemNav.parent('li').removeClass('active');
+			   		itemNav.removeClass('active');
 			   		$('.mega-sub-menu').removeClass('active');
 			   		
 			   	})
@@ -31,13 +31,13 @@ var navigation = {
 		      
 		    itemNav.on({
 	    		mouseenter: function() {
-	    			var	subMenu = $(this).siblings('.mega-sub-menu');
-			    	$(this).parent('li').addClass('active');
+	    			var	subMenu = $(this).children('.mega-sub-menu');
+			    	$(this).addClass('active');
 			    	subMenu.addClass('open fadeIn');
 	    		},
 	    		mouseleave: function() {
-	    			var	subMenu = $(this).siblings('.mega-sub-menu');
-			    	$(this).parent('li').removeClass('active');
+	    			var	subMenu = $(this).children('.mega-sub-menu');
+			    	$(this).removeClass('active');
 			    	subMenu.removeClass('fadeIn').addClass('fadeOut').removeClass('open fadeOut');
 		    	}
 		    });
@@ -104,8 +104,10 @@ var header = {
 				$('header').find('.trigger-search').removeClass('active');
 
 				if ( $(window).width() <= 991 ) {
-					$(".header-mobile .nav-icon").removeClass('open');
-					$("nav.navigation-main").removeClass('open');
+					if ( $(".header-main .header-mobile .nav-icon").hasClass('open')) {
+						console.log("open");
+						$('.header-scroll .header-mobile .nav-icon').addClass('open');
+					};
 				}
 
 		    } 	
@@ -176,34 +178,50 @@ var accordion = {
 /* # STICKY SCROLLSPY NAV # */
 var stickyNav = {
 	init: function() {
-		//Polyfill
-		var elements = $('.sticky-nav');
-		Stickyfill.add(elements);
-
+		// Get Sticky
+		var stickyNav 				= $('.sticky-nav'),
+			stickyNavHeight			= $('.sticky-nav ul').height() + 100;
+			contentArticle 			= $('.article-content-scroll'),
+			contentArticleOffset	= $('.article-content-scroll').offset().top - 80,
+			reboundOffset 			= $(".rebound").offset().top;
+		
+		$(window).on('scroll', function() {
+			var scrollTop = $(this).scrollTop();
+			
+	        if ( contentArticleOffset < scrollTop && Math.abs(reboundOffset-stickyNavHeight) > scrollTop ) {
+	            stickyNav.addClass('fixed');
+	            contentArticle.parent().addClass('offset-xl-2');
+	        } 
+	        else {
+	        	stickyNav.removeClass('fixed');
+	        	contentArticle.eq(0).parent().removeClass('offset-xl-2');
+	        }
+		});
+		
 		// Add Offset on click
 		var navOffset = $('.header-scroll').height();
 		$('.sticky-nav ul li a').on('click', function(e) {
-		    var href = $(this).attr('href');
+		    var href 		= $(this).attr('href'),
+		    	offsetTop 	= $(this).offset().top;
+		    
 		    e.preventDefault();
-		    console.log($(this));
 
 		    // Explicitly scroll to where the browser thinks the element
 		    // is, but apply the offset.
 		    $(href)[0].scrollIntoView();
 		    window.scrollBy(0, -navOffset-30);
+
 		});
 	}
 }
 /* # STICKY SHARE ARTICLE # */
 var stickyShare = {
 	init: function() {
-		var windowWidth = $(window).width();
 		var share 			= $(".article-head .share"),
 			titleOffset		= $("h1").offset().top,
 	    	reboundOffset 	= $(".rebound").offset().top;
 		$(window).on('scroll', function() {
 			var scrollTop 	= $(this).scrollTop();
-			shareOffset 	= share.offset().top;
 	        if ( titleOffset < scrollTop && (reboundOffset-400) > scrollTop) {
 	            share.addClass('fixed');
 	        } else {

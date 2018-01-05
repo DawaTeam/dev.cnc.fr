@@ -242,6 +242,12 @@ a {
 }
 
 .section-title {
+    h2 {
+        margin: 0;
+        font-family: "AkkuratLight";
+        font-size: 2.6rem;
+        color:$black;
+    }
     a {
         font-family: "AkkuratLight";
         font-size: 2.4rem;
@@ -597,9 +603,17 @@ input[type="email"] {
 
 /** Sticky ScrollSpy Nav **/
 .sticky-nav {
-    position:sticky;
-    top:80px;
     @extend .clearfix;
+    &.fixed {
+        max-width: 15.66666667%!important;
+        position: fixed;
+        top:80px;
+        height:90%;
+        overflow-y:auto;
+        &::-webkit-scrollbar { 
+            display: none; 
+        }
+    }
     ul {
         margin: 0;
         padding: 0;
@@ -646,7 +660,7 @@ input[type="email"] {
             display: inline-block;
             font-size: 1.3rem;
             &:before {
-                content: "\e903";
+                content: "\e904";
                 font-family: "CncIcon";
                 margin: 0 5px;
                 color: $grey;
@@ -663,14 +677,13 @@ input[type="email"] {
                     }
                 }
             }
-            &:hover {
-                a {
-                    color:$green;
-                }
-            }
+            
             a {
                 color:$grey;
                 text-decoration: none;
+                &:hover {
+                    color:$green;
+                }
             }
         }
     }
@@ -755,7 +768,52 @@ header {
             }
         }
         
+        &.home {
+            width:100%;
+            border: none;
+            z-index: 1;
+            @include media-breakpoint-up(lg) {
+                position: absolute;
+                top:0;
+                left:0;
+            }
+
+            .logo {
+                @include media-breakpoint-up(lg) {
+                    height: auto;
+                    background: none;
+                    line-height: normal;
+                    text-align: left;
+                    z-index: 2;
+                }
+                img {
+                     @include media-breakpoint-up(lg) {
+                        max-width: 100%;
+                    }
+                }
+
+            }
+            .header-top, .header-bottom {
+                @include media-breakpoint-up(lg) {
+                    margin-left: -1px;
+                }
+            }
+            nav.navigation-main {
+                ul {
+                    li {
+                        @include media-breakpoint-only(lg) {
+                            padding: 15px 8px;
+                        }
+                        ul.mega-sub-menu {
+                            z-index: 1;
+                            //top:180px;
+                        }
+                    } 
+                }  
+            }
+        }
     }
+
     &.header-scroll {
         width: 100%;
         height: 51px;
@@ -996,6 +1054,11 @@ header {
                 visibility:visible;
             }
         }
+        .scrollable {
+            @include media-breakpoint-down(lg) {
+                overflow-y:scroll;
+            }
+        }
         ul {
             padding: 0;
             margin: 0;
@@ -1018,12 +1081,13 @@ header {
                 @include media-breakpoint-up (xl) {
                     padding: 15px;
                 }
-                &.active {
+                &:hover, &.active {
                     a {
                         text-decoration: none;
                         color:$green;
                         &:after {
                             width: 100%;
+                            opacity:1;
                         }
                     }
                     i {
@@ -1047,7 +1111,6 @@ header {
                         }
                     }
                 }
-
                 a {
                     padding: 25px 20px;
                     position: relative;
@@ -1350,6 +1413,186 @@ header {
 
 /*** @@_/HEADER  ***/
 
+/*** @@_COVER  ***/
+.cover {
+    position: relative;
+    img {
+        width:100%;
+        height:auto;
+    }
+    h1 {
+        padding-left: 60px;
+        position: absolute;
+        margin: 0;
+        left:0;
+        color:#FFF;
+        z-index: 1;
+        @include center(y);
+        @include media-breakpoint-up(lg) {
+            padding: 0;
+            top:auto;
+            bottom:40px;
+            transform:none;
+        }
+    }
+    .col-12 {
+        @include media-breakpoint-down(lg) {
+            position:inherit;
+        }
+    }
+}
+/*** @@_/COVER  ***/
+
+/*** @@_HOMES ***/
+.highlight {
+    margin-top: 60px;
+    .highlight-item {
+        position: relative;
+        background:$black;
+        cursor:pointer;
+        overflow:hidden;
+        &:hover {
+            .picture {
+                img {
+                    opacity:.7;
+                    transform:scale(1.05);   
+                }
+            }
+        }
+        .picture {
+            img {
+                width: 100%;
+                height:auto;
+                transition:all .3s ease-in-out;
+            }
+        }
+        .highlight-infos {
+            padding: 60px;
+            width: 100%;    
+            position: absolute;
+            bottom:0;
+            left:0;
+            background: linear-gradient(to top, rgba(0,0,0,.7) 0%,transparent 100%);
+            color:#FFF;
+            .category {
+                text-transform: uppercase;
+                color:#FFF;
+                font-size: 1.3rem;
+                a {
+                    color:#FFF;
+                    text-decoration: none;
+                }
+            }
+            .title {
+                font-family: "AkkuratLight";
+                font-size: 3.2rem;
+                @include media-breakpoint-up(lg) {
+                    width: 50%;
+                }
+                a {
+                    color:#FFF;
+                    text-decoration: none;
+                }
+            }
+            .excerpt {
+                font-size: 1.6rem;
+                @include media-breakpoint-up(lg) {
+                    width: 50%;
+                }
+                a {
+                    color:#FFF;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    &.half {
+        .highlight-item {
+            .highlight-infos {
+                padding:30px;
+                .title {
+                    width: 100%;
+                    font-family: "AkkuratBold";
+                    font-size: 2rem;
+                    a { 
+                        display: block;
+                        color:#FFF; 
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .related-articles {
+        margin-top: 0;
+
+    }
+}
+.video {
+    margin: 60px 0;
+    .related-articles {
+        margin-top: 20px;
+        .related-article-item {
+            position: relative;
+            .icon {
+                position: absolute;
+                top:20px;
+                @include center(x);
+                cursor:pointer;
+                @include media-breakpoint-up(sm) {
+                     @include center(xy);
+                }
+                @include media-breakpoint-up(lg) {
+                     top:30px
+                }
+                @include media-breakpoint-up(xl) {
+                    top:35px;
+                }
+                i {
+                    display: inline-block;
+                    margin-bottom: 25px;
+                    padding-left: 3px;
+                    width: 50px;
+                    height: 50px;
+                    border: 2px solid #FFF;
+                    border-radius: 100%;
+                    font-size: 2.2rem;
+                    color:#FFF;
+                    text-align: center;
+                    line-height: 48px;
+                    @include media-breakpoint-up(xl) {
+                        width: 60px;
+                        height: 60px;
+                        padding-left: 5px;
+                        line-height: 60px;
+                        font-size: 2.4rem;
+                    }
+                }
+            }
+            &:hover {
+                .icon i {
+                    background:rgba($black,.3);
+                }
+            }
+        }
+    }
+
+}
+.movies {
+    margin: 60px 0;
+    .list-articles {
+        margin-top: 20px;
+        article {
+            .infos {
+                @include media-breakpoint-up(lg) {
+                    width:70%;
+                }
+            }
+        }
+    }
+}
+/*** @@_HOMES ***/
+
 /*** @@_ARTICLE ***/
 .article-title  {
     position: relative;
@@ -1418,8 +1661,8 @@ header {
         }
         li {
             display: inline-block;
-            padding: 0;
-            margin: 0 5px;
+            padding: 0 !important;
+            margin: 0 2px;
             &:before {display: none;}
             i.icon-envelope {
                 padding: 11px;
@@ -1449,6 +1692,21 @@ header {
 .single .list-articles {
     article {
         margin-bottom: 40px;
+        cursor:pointer;
+        &:hover {
+            .picture {
+                a {
+                    img { 
+                        opacity:.7;
+                        transform:scale(1.05);
+                    }
+                }
+            }
+            .infos {
+                .category a { text-decoration: underline;}
+                h3 a { color:$green; }
+            }
+        }
         .picture {
             margin-bottom: 15px;
             background:$black;
@@ -1503,6 +1761,10 @@ header {
             }
             .excerpt {
                 font-size: 1.5rem;
+                a { 
+                    color:$black; 
+                    text-decoration: none;
+                }
             }
         }
     }
@@ -1511,10 +1773,10 @@ header {
 /* -- Single article --*/
 .single {
     article {
-        padding-bottom: 60px;
         font-family: Arial;
         font-size: 1.5rem;
         line-height: 2.4rem;
+        
         .article-title  {
             position: relative;
         }
@@ -2070,7 +2332,7 @@ header {
         }
         .infos {
             width: 100%;
-            padding: 0 30px 30px;
+            padding: 0 30px 20px;
             position: absolute;
             bottom:0px;
             left:0;
