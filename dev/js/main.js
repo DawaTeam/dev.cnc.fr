@@ -105,15 +105,21 @@ var header = {
 
 				if ( $(window).width() <= 991 ) {
 					if ( $(".header-main .header-mobile .nav-icon").hasClass('open')) {
-						console.log("open");
 						$('.header-scroll .header-mobile .nav-icon').addClass('open');
-					};
+					} else {
+						$('.header-scroll .header-mobile .nav-icon').removeClass('open');
+					}
 				}
 
 		    } 	
 		    else if( st > mainHeaderHeight ) {
 	            $('header.header-scroll').addClass('show');
 		        $('header.header-scroll').removeClass('hide');
+		        if ( $(".header-scroll .header-mobile .nav-icon").hasClass('open')) {
+						$('.header-main .header-mobile .nav-icon').addClass('open');
+				} else {
+					$('.header-main .header-mobile .nav-icon').removeClass('open');
+				}
 		    }
 		    
 		}
