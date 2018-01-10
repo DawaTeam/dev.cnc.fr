@@ -352,7 +352,7 @@ include "header-simple.html"
                         <div class="row no-gutters align-items-end">
                             <div class="form-group">
                                 <label for="select">Field</label>
-                                <div class="select-custom dropdown" id="#select">
+                                <div class="select-custom dropdown" id="#select_1">
                                     <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
                                         Item
                                         <i class="icon icon-chevron-right"></i>
@@ -379,13 +379,41 @@ include "header-simple.html"
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="select-custom dropdown" id="#select">
+                                <div class="select-custom dropdown" id="#select_2">
                                     <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
                                         Item
                                         <i class="icon icon-chevron-right"></i>
                                     </button>
                                     <div class="dropdown-menu" role="combobox">
                                         <ul class="dropdown-menu-inner list-unstyled" role="listbox" aria-expanded="false" >
+                                            <li data-original-index="0" class="selected dropdown-item">
+                                                <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
+                                                    <span class="text">Item</span>
+                                                </a>
+                                            </li>
+                                            <li data-original-index="0" class="selected dropdown-item">
+                                                <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
+                                                    <span class="text">Item</span>
+                                                </a>
+                                            </li>
+                                            <li data-original-index="0" class="selected dropdown-item">
+                                                <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
+                                                    <span class="text">Item</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-4">
+                                <div class="select-custom dropdown" id="#select_3">
+                                    <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
+                                        Sélectionner une aide
+                                        <i class="icon icon-chevron-right"></i>
+                                    </button>
+                                    <div class="dropdown-menu autocompletion" role="combobox">
+                                        <input type="text">
+                                        <ul class="dropdown-menu-inner list-unstyled " role="listbox" aria-expanded="false" >
                                             <li data-original-index="0" class="selected dropdown-item">
                                                 <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
                                                     <span class="text">Item</span>
@@ -512,7 +540,7 @@ include "header-simple.html"
                                         Le Bureau des Légendes les raisons d'un succès
                                     </a>
                                 </h3>
-                                <div class="excerpt"><a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati tempore eaque cupiditate autem! Maxime nemo fuga, nihil quo, doloremque, nam porro eveniet ea natus non, labore illum corporis inventore odio?</a></div>
+                                <div class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati tempore eaque cupiditate autem! Maxime nemo fuga, nihil quo, doloremque, nam porro eveniet ea natus non, labore illum corporis inventore odio?</div>
                             </div>
                         </article>
                     </div>
@@ -531,7 +559,7 @@ include "header-simple.html"
                                         Michel Gondry signe un film court pour mettre en lumière les salles “Art et Essai”
                                     </a>
                                 </h3>
-                                <div class="excerpt"><a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati tempore eaque cupiditate autem! Maxime nemo fuga, nihil quo, doloremque, nam porro eveniet ea natus non, labore illum corporis inventore odio?</a></div>
+                                <div class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati tempore eaque cupiditate autem! Maxime nemo fuga, nihil quo, doloremque, nam porro eveniet ea natus non, labore illum corporis inventore odio?</div>
                             </div>
                         </article>
                     </div>
@@ -550,7 +578,7 @@ include "header-simple.html"
                                         2ème Journée européenne du cinéma art et essai le dimanche 15 octobre 2017
                                     </a>
                                 </h3>
-                                <div class="excerpt"><a href="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati tempore eaque cupiditate autem! Maxime nemo fuga, nihil quo, doloremque, nam porro eveniet ea natus non, labore illum corporis inventore odio?</a></div>
+                                <div class="excerpt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati tempore eaque cupiditate autem! Maxime nemo fuga, nihil quo, doloremque, nam porro eveniet ea natus non, labore illum corporis inventore odio?</div>
                             </div>
                         </article>
                     </div>
@@ -628,8 +656,10 @@ include "header-simple.html"
                     <div class="col-12 col-lg-4">
                         <div class="cnc-like-item">
                             <div class="category">
-                                <a href="" title="">Cinéma</a>
-                                <span>International</span>
+                                <ul class="list-unstyled">
+                                    <li><a href="" title="">Cinéma</a></li>
+                                    <li><a href="" title="">International</a></li>
+                                </ul>
                             </div>
                             <h3>
                                 <a href="" title="">
@@ -657,9 +687,11 @@ include "header-simple.html"
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cnc-like-item">
-                            <div class="category">
-                                <a href="" title="">Cinéma</a>
-                                <span>International</span>
+                             <div class="category">
+                                <ul class="list-unstyled">
+                                    <li><a href="" title="">Cinéma</a></li>
+                                    <li><a href="" title="">International</a></li>
+                                </ul>
                             </div>
                             <h3>
                                 <a href="" title="">
@@ -687,9 +719,11 @@ include "header-simple.html"
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cnc-like-item">
-                            <div class="category">
-                                <a href="" title="">Cinéma</a>
-                                <span>International</span>
+                             <div class="category">
+                                <ul class="list-unstyled">
+                                    <li><a href="" title="">Cinéma</a></li>
+                                    <li><a href="" title="">International</a></li>
+                                </ul>
                             </div>
                             <h3>
                                 <a href="" title="">

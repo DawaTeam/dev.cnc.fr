@@ -243,3 +243,13 @@ var stickyShare = {
 		})
 	}
 }
+/* # FULL IMAGE WITH TEXT COVER # */
+var updateCover = {
+	init: function() {
+		var cover = $('.full-screen-image-w-text');
+		cover.each(function() {
+			var data_bg = $(this).data("bg");
+			$(this).css('background-image', 'url('+data_bg+')');
+		})
+	}
+}
