@@ -46,8 +46,10 @@ var navigation = {
 		else {
 			var navTrigger   	= $(".header-mobile .nav-icon"),
 	      		nav     		= $("nav.navigation-main"),
-	      		subMenuTrigger	= $(".navigation-main li.with-sub-menu i");
+	      		subMenuTrigger	= $(".navigation-main li.with-sub-menu i"),
+	      		wrapperNav		= $("nav.navigation-main .scrollable");
 	      
+	      	wrapperNav.css('height', $(window).height());
 		    navTrigger.on("click", function() {
 		    	if ( !$(this).hasClass('open') ) {
 		    		$(this).addClass('open');
