@@ -25,3 +25,8 @@ node_modules/grunt-newer/.cache/includes/files/timestamp
 *.map
 
 *.zip
+
+Gruntfile.js
+
+package.json
+
