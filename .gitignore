@@ -14,3 +14,15 @@ node_modules/.bin/esparse
 node_modules/.bin/esvalidate
 
 node_modules/.bin/grunt
+
+*.zip
+
+node_modules/grunt-newer/.cache/uglify/minify_js/timestamp
+
+node_modules/grunt-newer/.cache/sass/css/timestamp
+
+node_modules/grunt-newer/.cache/postcss/dist/timestamp
+
+node_modules/grunt-newer/.cache/includes/files/timestamp
+
+*.map

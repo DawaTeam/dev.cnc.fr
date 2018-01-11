@@ -142,7 +142,7 @@ var header = {
 			} else {
 				$('.backdrop').remove();
 				searchInput.val('');
-				$('header').css("z-index", 1);
+				$('header').css("z-index", 2);
 			}
 
 		});

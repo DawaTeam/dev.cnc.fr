@@ -559,14 +559,16 @@ include "header-main.html"
                         <div class="list-articles">                        
                             <div class="row">
                                 <div class="col-12 col-lg-4">
-                                    <article data-url="URL">
+                                    <article>
                                          <div class="picture">
-                                            <img src="images/img-actu-block.jpg" alt="">
+                                            <a href="" title="">
+                                                <img src="images/img-actu-block.jpg" alt="">
+                                            </a>
                                         </div>
                                         <div class="infos">
                                             <div class="date">15 octobre 2017</div>
                                             <h3>
-                                                <a href="URL" title="">
+                                                <a href="" title="">
                                                     Le Bureau des Légendes les raisons d'un succès
                                                 </a>
                                             </h3>
@@ -738,7 +740,6 @@ include "footer.html"
         navigation.init();
         header.stickySearch();
         header.sticky();
-        stickyNav.init();
         stickyShare.init();
         accordion.init();
     });

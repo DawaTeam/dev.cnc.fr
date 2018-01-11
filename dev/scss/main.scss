@@ -201,6 +201,7 @@ a {
                 display: block;
                 width:50px;
                 height: 50px;
+                float: none;
                 border: 1px solid $green;
                 border-radius: 100%;
                 text-align: center;
@@ -705,6 +706,9 @@ input[type="email"] {
                 display: block;
                 color:$black;
                 text-decoration: none;
+                &:hover, &.active {
+                    color:$green;
+                }
             }
         }
     }
@@ -1293,8 +1297,12 @@ header {
                                 }
                             }
                             &.highlight {
+                                margin: 0;
                                 a {
                                     color:$green;
+                                    &:hover {
+                                        text-decoration: underline;
+                                    }
                                 }
                             }
                            
@@ -1367,7 +1375,7 @@ header {
             height: 40px;
             border: none;
             background:#FFF;
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             border-radius: 0;
         }
         input[type="text"]::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -1832,6 +1840,7 @@ header {
             margin-top: 30px;
             .date {
                 margin:0 0 5px;
+                font-family: "AkkuratRegular";
                 font-size: 1.3rem;
                 text-transform: uppercase;
                 color:$grey;
@@ -1975,6 +1984,26 @@ header {
                 float: right;
             }
         }        
+    }
+    .filters {
+        margin-bottom: 60px;
+        .inline-form {
+            .form-group {
+                margin-right: 0;
+
+                .autocompletion {
+                    @include media-breakpoint-up(lg) {
+                        width: 200%;
+                    }
+                }
+                
+                input[type=submit] {
+                    width: 100%;
+                    z-index: 1;
+                    position: relative;
+                }
+            }
+        }
     }
     .cta-image {
         margin-bottom: 60px;
@@ -2274,8 +2303,7 @@ header {
             }
             .date {
                 margin:30px 0 0;
-                font-family: "AkkuratBold";
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 text-transform: uppercase;
                 color:$grey;
             }
@@ -2507,7 +2535,6 @@ header {
                 }
                 .date {
                     margin-bottom: 5px;
-                    font-family: "AkkuratBold";
                     font-size: 1.3rem;
                     text-transform: uppercase;
                     color:$grey;
@@ -2742,11 +2769,26 @@ header {
     padding: 50px 0;
     position: relative;
     background: linear-gradient(to top, #FFFFFF 0%,#62c9be 100%);
-    color:#14a292;
+    color:#FFF;
     z-index: 1;
+    text-align: center;
+    .title {
+        margin-bottom: 20px;
+        font-family: "Akkurat-Light";
+        font-size: 2.6rem;
+    }
+    .intro {
+        margin-bottom: 30px;
+        font-size: 1.5rem;
+        @include media-breakpoint-up(lg) {
+            width:70%;
+            margin: 0 auto 30px;
+        }
+    }
     .key-figure-item {
-        text-align: center;
         margin-bottom: 60px;
+        text-align: center;
+        color:#14a292;
         @include media-breakpoint-up(lg){
             margin: 0;
         }
@@ -2766,6 +2808,9 @@ header {
             font-size: 1.6rem;
         }
 
+    }
+    .button {
+        margin-top: 30px;
     }
 }
 .related-articles {
