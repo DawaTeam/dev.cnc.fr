@@ -187,13 +187,13 @@ a {
     .link-icon {
         a {
             display: inline-block;
-            color:$green;
+            color:$black;
             font-size: 1.4rem;
             &:hover {
-                color:$black;
+                color:$green;
                 i {
-                    color:$black;
-                    border-color: $black;
+                    color:$green;
+                    border-color: $green;
                 }
             }
             i {
@@ -202,11 +202,11 @@ a {
                 width:50px;
                 height: 50px;
                 float: none;
-                border: 1px solid $green;
+                border: 2px solid $grey-light;
                 border-radius: 100%;
                 text-align: center;
                 line-height: 48px;
-                color:$green;
+                color:$grey-light;
             }
         }
     }
@@ -697,17 +697,48 @@ input[type="email"] {
         text-align: center;
         li {
             padding: 0;
-            margin: 0;
+            margin: 0 6px;
             display: inline-block;
-            font-size: 1.5rem;
+            vertical-align: top;
+            font-size: 1.6rem;
             &:before { display: none;}
             a {
-                padding:10px;
+                width: 36px;
+                height: 36px;
                 display: block;
+                background:#f6f6f6;
+                border-radius: 100%;
+                text-align: center;
+                line-height: 36px;
                 color:$black;
                 text-decoration: none;
                 &:hover, &.active {
-                    color:$green;
+                    background:$green;
+                    color:#FFF;
+
+                    i {
+                        color:$green
+                    }
+
+                }
+                &.first, &.prev, &.next, &.last {
+                    background:none;
+                    border: 2px solid $grey-light;
+                    line-height: 40px;
+                    color:$grey-light;
+                    i {
+                        font-size: 2.4rem;
+                    }
+                    &:hover {
+                        border-color:$green;
+                    }
+                }
+                &.first, &.prev {
+                    i {
+                        margin-left: -2px;
+                        display: inline-block;
+                        transform:rotate(180deg);
+                    }
                 }
             }
         }
@@ -1712,9 +1743,7 @@ header {
                     font-size: 1.3rem;
                     text-transform: uppercase;
                     color: #4ac1b4;
-                    a {
-                        color:$green;
-                    }
+                    
                 }
                 .title {
                     margin-bottom: 15px;
@@ -1724,9 +1753,20 @@ header {
                     a {
                         text-decoration: none;
                         color:$black;
-                        &:hover {
-                            color:$green;
-                        }
+                    }
+                }
+            }
+            &:hover {
+                .category {
+                    text-decoration: underline;
+                }
+                .title a {
+                    color:$green;
+                }
+                .link-icon {
+                    a  i {
+                        border-color: $green;
+                       color: $green;
                     }
                 }
             }
@@ -2105,6 +2145,7 @@ header {
     margin: 30px 0;
     text-align: center;
     cursor:pointer;
+    z-index: 1;
     @include media-breakpoint-up(lg) {
         margin: 0;
         position:absolute;
@@ -2207,7 +2248,7 @@ header {
                 }
             }
             .infos {
-                .category a { text-decoration: underline;}
+                .category { text-decoration: underline;}
                 h3 a { color:$green; }
             }
         }
@@ -2710,6 +2751,11 @@ header {
                 font-size: 1.8rem;
                 text-transform: uppercase;
             }
+        }
+    }
+    &.topic {
+        .rebound {
+            .section-title { text-align: center;}
         }
     }
 }

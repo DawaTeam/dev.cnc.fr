@@ -223,8 +223,17 @@ var stickyNav = {
 	}
 }
 /* # STICKY SHARE ARTICLE # */
-var stickyShare = {
+var share = {
 	init: function() {
+		var share = $(".article-head .share");
+		share.on('click', function() {
+			var shareOptions = $(this).children("ul");
+			$(this).toggleClass('active');
+			shareOptions.toggleClass('open fadeIn');
+
+		})
+	}, 
+	sticky : function() {
 		var share 			= $(".article-head .share"),
 			titleOffset		= $("h1").offset().top,
 	    	reboundOffset 	= $(".rebound").offset().top;
@@ -236,13 +245,6 @@ var stickyShare = {
 	        	share.removeClass('fixed');
 	        }
 		});
-
-		share.on('click', function() {
-			var shareOptions = $(this).children("ul");
-			$(this).toggleClass('active');
-			shareOptions.toggleClass('open fadeIn');
-
-		})
 	}
 }
 /* # FULL IMAGE WITH TEXT COVER # */
