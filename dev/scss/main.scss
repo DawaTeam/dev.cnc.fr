@@ -307,9 +307,6 @@ form {
     input[type=submit] {
         cursor:pointer;
     }
-    .row {
-        width: 100%;
-    }
     .form-group {
         margin-bottom: 30px;
         @include media-breakpoint-down(md) {
@@ -338,22 +335,15 @@ form {
                 font-size: 1.3rem;
             }
         }
-    }
-    &.inline-form {
-        label {
-            margin-bottom: 10px;
-            flex-basis: 100%;
-            justify-content:left;
-        }
-        .form-group {
-            width:100%;
-            @include flex-align-items(flex-end);
-            @include media-breakpoint-up(lg){
-                width:auto;
-                margin-right: 50px;
-            }
+        .help {
+            margin-top: 5px;
+            display: inline-block;
+            font-family: Arial;
+            font-size: 1.4rem;
+            color:$grey;
         }
     }
+
     .select-custom {
         @include media-breakpoint-down(md) {
             width: 100%;
@@ -514,6 +504,72 @@ form {
             }            
         }
     }
+    &.inline-form {
+        label {
+            margin-bottom: 10px;
+            flex-basis: 100%;
+            justify-content:left;
+        }
+        .form-group {
+            width:100%;
+            @include flex-align-items(flex-end);
+            @include media-breakpoint-up(lg){
+                width:auto;
+            }
+            input[type=text],
+            input[type=email] {
+                width: 100%;
+            }
+        }
+    }
+
+    &.dark {
+        label { color:#FFF;}
+
+        input[type="text"],
+        input[type="email"] {
+            background: transparent;
+            border-color: #FFF;
+            color:#FFF;
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                color: #FFF;
+            }
+            &::-moz-placeholder { /* Firefox 19+ */
+              color: #FFF;
+            }
+            &:-ms-input-placeholder { /* IE 10+ */
+              color: #FFF;
+            }
+            &:-moz-placeholder { /* Firefox 18- */
+              color: #FFF;
+            }
+        }
+        .select-custom  {
+            .dropdown-toggle {
+                background:transparent;
+                border-color: #FFF;
+                color:#FFF;
+
+                i {
+                    color:#FFF;
+                }
+            }
+            .dropdown-menu {
+                background:$black;
+                border-color: #FFF;
+                .dropdown-item {
+                    a {
+                        color:#FFF;
+                    }
+                    &:hover, &:focus {
+                        background:#393939;
+                    }
+                }
+            }
+        }
+
+
+    }    
 }
 
 input[type="text"],
@@ -531,25 +587,7 @@ input[type="email"] {
     &:focus, &:active {
         border-color: $grey-light;
         outline:none;
-    }
-
-    &.dark {
-        background: transparent;
-        border-color: #FFF;
-        color:#FFF;
-        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-            color: #FFF;
-        }
-        &::-moz-placeholder { /* Firefox 19+ */
-          color: #FFF;
-        }
-        &:-ms-input-placeholder { /* IE 10+ */
-          color: #FFF;
-        }
-        &:-moz-placeholder { /* Firefox 18- */
-          color: #FFF;
-        }
-    }
+    }    
 }
 
 /** Table **/
@@ -562,6 +600,7 @@ input[type="email"] {
         th {
             padding:10px 20px;
             border: none;
+            vertical-align: top;
             font-family: "AkkuratRegular";
         }
     }
@@ -1550,16 +1589,6 @@ header {
 /*** @@_HOMES ***/
 .highlight {
     margin-top: 60px;
-    .highlight-main {
-        .highlight-item {
-            .highlight-infos {
-                @include media-breakpoint-down(md) {
-                    position: relative;
-                    padding: 20px;
-                }
-            }
-        }
-    }
     .highlight-item {
         position: relative;
         background:$black;
@@ -1581,13 +1610,14 @@ header {
             }
         }
         .highlight-infos {
-            padding: 60px;
+            padding: 20px;
             width: 100%;    
             position: absolute;
             bottom:0;
             left:0;
-            background: linear-gradient(to top, rgba(0,0,0,.7) 0%,transparent 100%);
-            color:#FFF;
+            @include media-breakpoint-up(lg) {
+                padding: 60px;
+            }
             .category {
                 text-transform: uppercase;
                 color:#FFF;
@@ -1599,8 +1629,10 @@ header {
             }
             .title {
                 font-family: "AkkuratLight";
-                font-size: 3.2rem;
+                font-size: 2rem;
                 @include media-breakpoint-up(lg) {
+                    margin-bottom: 30px;
+                    font-size: 3.2rem;
                     width: 50%;
                 }
                 a {
@@ -1609,8 +1641,11 @@ header {
                 }
             }
             .excerpt {
+                display: none;
                 font-size: 1.6rem;
+                color:#FFF;
                 @include media-breakpoint-up(lg) {
+                    display: block;
                     width: 50%;
                 }
                 a {
@@ -1625,6 +1660,7 @@ header {
             .highlight-infos {
                 padding:30px;
                 .title {
+                    margin-bottom: 0;
                     width: 100%;
                     font-family: "AkkuratBold";
                     font-size: 2rem;
@@ -1640,6 +1676,7 @@ header {
     .related-articles {
         margin-top: 0;
         .related-article-item {
+            margin: 0;
             .infos {
                 .title {
                     @include media-breakpoint-only(lg) {
@@ -1657,6 +1694,7 @@ header {
     .related-articles {
         margin-top: 20px;
         .related-article-item {
+            margin: 0;
             position: relative;
             .icon {
                 position: absolute;
@@ -1743,7 +1781,10 @@ header {
                     font-size: 1.3rem;
                     text-transform: uppercase;
                     color: #4ac1b4;
-                    
+                    a {
+                        color: #4ac1b4;
+
+                    }
                 }
                 .title {
                     margin-bottom: 15px;
@@ -1815,10 +1856,14 @@ header {
         }
         .title {
             margin-bottom: 10px;
-            font-family: "AkkuratLight";
-            font-size: 2.6rem;
             @include media-breakpoint-up(md) {
                 margin-bottom: 20px;
+            }
+            h2 {
+                margin: 0;
+                font-family: "AkkuratLight";
+                font-size: 2.6rem;
+                color:#FFF;
             }
         }
         .desc {
@@ -1840,7 +1885,7 @@ header {
                     margin: 0;
                 }
                 @include media-breakpoint-up(lg) {
-                    margin-right: 30px;
+                    margin:0 30px 0 0;
                     display: inline-block;
                     
                 }
@@ -1946,6 +1991,112 @@ header {
     }
 }
 
+/*-- Home --*/
+.home {
+    .highlight {
+        margin-top: 0;
+        .highlight-item  {
+            .highlight-infos {
+                @include media-breakpoint-up(lg) {
+                    padding: 40px 20px;
+                }
+                @include media-breakpoint-up(xl) {
+                    padding: 30px;
+                }
+                .container {
+                    @include media-breakpoint-down(md) {
+                        max-width: 100%;
+                        padding: 0;
+                    }
+                    .row {
+                        @include media-breakpoint-down(md) {
+                           margin: 0;
+                        }
+                        .col-12 {
+                            @include media-breakpoint-down(md) {
+                                padding: 0;
+                            }
+                        }
+                    }
+                }
+                .category {
+                    font-size: 1.6rem;
+                    @include media-breakpoint-up(lg) {
+                        margin-bottom: 15px;
+                    }
+                    @include media-breakpoint-up(xl) {
+                        margin-bottom: 30px;
+                    }
+                }
+                .title {
+                    width: 100%;
+                    font-size: 2rem;
+                    line-height: 2.6rem;
+                    @include media-breakpoint-up(lg) {
+                        margin-bottom: 15px;
+                        font-size: 3.2rem;
+                        line-height: 3.8rem;
+                    }
+                    @include media-breakpoint-up(xl) {
+                        margin-bottom: 30px;
+                        font-size: 4.2rem;
+                        line-height: 4.8rem;
+                    }
+                }
+                .excerpt {
+                    width: 100%;
+                    display: none;
+                    @include media-breakpoint-up(lg) {
+                        display: block;
+                    }
+                }
+            }
+        }
+        .related-articles {
+            .category {
+                font-family: "AkkuratBold";
+                span {
+                    font-family: "AkkuratLight";
+                    &:before {
+                        margin-right: 2px;
+                        content:"•";
+                        display: inline-block;
+                        color:#FFF;
+                    }
+                }
+            }
+        }
+             
+    }
+    .full-image {
+        .picture {
+            img {
+                width: 100%;
+                height:auto;
+            }
+        }
+    }
+    .funding-form {
+        padding:40px 0;
+        background:$black;
+        color:#FFF;
+        .title {
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: "AkkuratLight";
+            font-size: 2.6rem;
+        }
+        .form-group {
+            margin-right: 0;
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
+.currently {
+    margin: 60px 0;
+}
 /*-- Professionnels --*/
 .professionnels {
     h2 {
@@ -2047,6 +2198,17 @@ header {
     }
     .cta-image {
         margin-bottom: 60px;
+    }
+    .results {
+        margin-top: 60px;
+        .nb-results {
+            margin-bottom: 40px;
+            font-family: "AkkuratLight";
+            font-size: 2.2rem;
+            span {
+                font-family: "AkkuratBold";
+            }
+        }
     }
 }
 
@@ -2867,9 +3029,14 @@ header {
         margin-bottom: 40px;
         font-family: "AkkuratLight";
         font-size: 2.6rem;
+        h2 {
+            font-family: "AkkuratLight";
+            font-size: 2.6rem;
+            color:$black;
+        }
     }
     .related-article-item {
-        margin:15px 0;
+        //margin:15px 0;
         position: relative;
         @include media-breakpoint-up(lg) {
             margin:0;
@@ -3031,6 +3198,44 @@ header {
     }
 }
 /*** @@_/COMMISSIONS ***/
+
+/*** @@_VISA ***/
+.visa {
+    .details {
+        margin-bottom: 60px;
+    }
+    .bdr {
+        border-bottom: 2px solid $grey-lighter;
+        @include media-breakpoint-up(lg) {
+            border: none;
+            border-right: 2px solid $grey-lighter;
+        }
+    }
+    .pl {
+        padding-top: 20px;
+        @include media-breakpoint-up(lg) {
+            padding: 0;
+            padding-left: 30px;
+        }
+    }
+    .d-lg-flex {
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        .th {
+            font-family: Arial;
+            font-weight: bold;
+            @include media-breakpoint-up(md) {
+                width: 45%;
+            }
+        }
+        .td {
+            @include media-breakpoint-up(md) {
+                width: 55%;
+            }
+        }
+    }
+}
+/*** @@_/VISA ***/
 
 
 /**** @@_FOOTER ***/

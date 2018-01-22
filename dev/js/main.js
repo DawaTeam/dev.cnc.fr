@@ -257,3 +257,32 @@ var updateCover = {
 		})
 	}
 }
+
+
+/* # DATE PICKER# */
+var datePicker = {
+	init: function() {
+		var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+        $('#startDate').datepicker({
+        	locale: 'fr-fr',
+        	format: 'dd/mm/yyyy',
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: today,
+            maxDate: function() {
+                return $('#endDate').val();
+            }
+        });
+
+        $('#endDate').datepicker({
+        	locale: 'fr-fr',
+        	format: 'dd/mm/yyyy',
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: function() {
+                return $('#startDate').val();
+            }
+        });
+		
+	}
+}
