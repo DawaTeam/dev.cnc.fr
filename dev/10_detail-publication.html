@@ -8,6 +8,7 @@
     <title>CNC | Détail d'un publication</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" hreflang="" href=""/>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -27,30 +28,30 @@ include "header-main.html"
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <ol vocab="http://schema.org/" typeof="BreadcrumbList" class="list-unstyled">
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Accueil</span>
+                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="list-unstyled">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Accueil</span>
                         </a>
-                       <meta property="position" content="1">
+                       <meta itemprop="position" content="1">
                     </li>
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Cinéma</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Cinéma</span>
                         </a>
-                        <meta property="position" content="2">
+                        <meta itemprop="position" content="2">
                     </li>
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Bilans et rapports</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Bilans et rapports</span>
                         </a>
-                        <meta property="position" content="3">
+                        <meta itemprop="position" content="3">
                     </li>
-                    <li property="itemListElement" typeof="ListItem" class="active">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Rapport d’activité de la Commission et des comités de classification des oeuvres cinématographiques du 1er janvier 2013 au 31...</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Rapport d’activité de la Commission et des comités de classification des oeuvres cinématographiques ...</span>
                         </a>
-                        <meta property="position" content="4">
+                        <meta itemprop="position" content="4">
                     </li>
                 </ol> 
             </div>
@@ -102,7 +103,7 @@ include "header-main.html"
                     </div>
                     <div class="col-12 col-lg-8">
                         <div class="infos">
-                            <div class="category"><a href="" title="">SECTEUR</a></div>
+                            <div class="category"><a href="" title="">CINÉMA</a></div>
                             <div class="tags">
                                 <div class="title-tag">Tags :</div>
                                 <ul class="list-unstyled">
@@ -145,7 +146,7 @@ include "header-main.html"
     <hr>
     <div class="rebound">
         <div class="container">
-            <div class="related-articles">
+            <div class="related-publications">
                 <div class="row">
                     <div class="col-12 text-center">
                         <div class="section-title">Sur le même sujet</div>
@@ -153,79 +154,83 @@ include "header-main.html"
                 </div>
                 <div class="row">
                     <div class="col-12 col-lg-6">
-                        <div class="row">
-                            <div class="col-12 col-lg-5">
-                                <div class="picture">
-                                    <a href="" title="">
-                                        <img src="images/img-pdf-file-1.jpg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-7">
-                                <div class="infos">
-                                    <div class="category"><a href="" title="">SECTEUR</a></div>
-                                    <div class="title">
-                                        <a href="" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
+                        <div class="related-publication-item">
+                            <div class="row">
+                                <div class="col-12 col-lg-5">
+                                    <div class="picture">
+                                        <a href="" title="">
+                                            <img src="images/img-pdf-file-1.jpg" alt="">
+                                        </a>
                                     </div>
-                                    <div class="tags">
-                                        <div class="title-tag">Tags :</div>
-                                        <ul class="list-unstyled">
-                                            <li><a href="" title="">Lorem</a></li>
-                                            <li><a href="" title="">Ipsum</a></li>
-                                            <li><a href="" title="">Amet</a></li>
+                                </div>
+                                <div class="col-12 col-lg-7">
+                                    <div class="infos">
+                                        <div class="category"><a href="" title="">CINÉMA</a></div>
+                                        <div class="title">
+                                            <a href="" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
+                                        </div>
+                                        <div class="tags">
+                                            <div class="title-tag">Tags :</div>
+                                            <ul class="list-unstyled">
+                                                <li><a href="" title="">Lorem</a></li>
+                                                <li><a href="" title="">Ipsum</a></li>
+                                                <li><a href="" title="">Amet</a></li>
+                                            </ul>
+                                        </div>
+                                        <ul class="list-unstyled simple">
+                                            <li>
+                                                <strong>Type de publication</strong> : 
+                                                <a href="" title="">Lorem ipsum</a>
+                                            </li>
+                                            <li>
+                                                <strong>Année</strong> : 12/03/2017
+                                            </li>
                                         </ul>
                                     </div>
-                                    <ul class="list-unstyled simple">
-                                        <li>
-                                            <strong>Type de publication</strong> : 
-                                            <a href="" title="">Lorem ipsum</a>
-                                        </li>
-                                        <li>
-                                            <strong>Année</strong> : 12/03/2017
-                                        </li>
-                                    </ul>
-                                </div>
-                                <p class="excerpt">Praesent a tellus posuere, malesuada sapien quis, bibendum nunc. Nulla sit amet ultrices velit, a ullamcorper nisi. Phasellus eleifend posuere...
-                                </p> 
-                           </div>
+                                    <p class="excerpt">Praesent a tellus posuere, malesuada sapien quis, bibendum nunc. Nulla sit amet ultrices velit, a ullamcorper nisi. Phasellus eleifend posuere...
+                                    </p> 
+                               </div>
+                            </div>
                         </div>
                     </div>
                     <div class="col-12 col-lg-6">
-                        <div class="row">
-                            <div class="col-12 col-lg-5">
-                                <div class="picture">
-                                    <a href="" title="">
-                                        <img src="images/img-pdf-file-1.jpg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-7">
-                                <div class="infos">
-                                    <div class="category"><a href="" title="">SECTEUR</a></div>
-                                    <div class="title">
-                                        <a href="" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
+                        <div class="related-publication-item">
+                            <div class="row">
+                                <div class="col-12 col-lg-5">
+                                    <div class="picture">
+                                        <a href="" title="">
+                                            <img src="images/img-pdf-file-1.jpg" alt="">
+                                        </a>
                                     </div>
-                                    <div class="tags">
-                                        <div class="title-tag">Tags :</div>
-                                        <ul class="list-unstyled">
-                                            <li><a href="" title="">Lorem</a></li>
-                                            <li><a href="" title="">Ipsum</a></li>
-                                            <li><a href="" title="">Amet</a></li>
+                                </div>
+                                <div class="col-12 col-lg-7">
+                                    <div class="infos">
+                                        <div class="category"><a href="" title="">CINÉMA</a></div>
+                                        <div class="title">
+                                            <a href="" title="">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a>
+                                        </div>
+                                        <div class="tags">
+                                            <div class="title-tag">Tags :</div>
+                                            <ul class="list-unstyled">
+                                                <li><a href="" title="">Lorem</a></li>
+                                                <li><a href="" title="">Ipsum</a></li>
+                                                <li><a href="" title="">Amet</a></li>
+                                            </ul>
+                                        </div>
+                                        <ul class="list-unstyled simple">
+                                            <li>
+                                                <strong>Type de publication</strong> : 
+                                                <a href="" title="">Lorem ipsum</a>
+                                            </li>
+                                            <li>
+                                                <strong>Année</strong> : 12/03/2017
+                                            </li>
                                         </ul>
                                     </div>
-                                    <ul class="list-unstyled simple">
-                                        <li>
-                                            <strong>Type de publication</strong> : 
-                                            <a href="" title="">Lorem ipsum</a>
-                                        </li>
-                                        <li>
-                                            <strong>Année</strong> : 12/03/2017
-                                        </li>
-                                    </ul>
-                                </div>
-                                <p class="excerpt">Praesent a tellus posuere, malesuada sapien quis, bibendum nunc. Nulla sit amet ultrices velit, a ullamcorper nisi. Phasellus eleifend posuere...
-                                </p> 
-                           </div>
+                                    <p class="excerpt">Praesent a tellus posuere, malesuada sapien quis, bibendum nunc. Nulla sit amet ultrices velit, a ullamcorper nisi. Phasellus eleifend posuere...
+                                    </p> 
+                               </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -244,8 +249,8 @@ include "footer.html"
         navigation.init();
         header.stickySearch();
         header.sticky();
-        stickyNav.init();
-        stickyShare.init();
+        share.init();
+        share.sticky();
 
     });
 </script>

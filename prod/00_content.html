@@ -8,6 +8,7 @@
     <title>CNC | Content</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="alternate" hreflang="" href=""/>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
@@ -204,18 +205,18 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <ol vocab="http://schema.org/" typeof="BreadcrumbList" class="list-unstyled">
-                    <li property="itemListElement" typeof="ListItem">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Accueil</span>
+                <ol itemscope itemtype="http://schema.org/BreadcrumbList" class="list-unstyled">
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="https://example.com/books" href="">
+                            <span itemprop="name">Accueil</span>
                         </a>
-                       <meta property="position" content="1">
+                       <meta itemprop="position" content="1">
                     </li>
-                    <li property="itemListElement" typeof="ListItem" class="active">
-                        <a property="item" typeof="WebPage" href="">
-                            <span property="name">Content</span>
+                    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="active">
+                        <a itemscope itemtype="http://schema.org/Thing" itemprop="item" href="">
+                            <span itemprop="name">Content</span>
                         </a>
-                        <meta property="position" content="2">
+                        <meta itemprop="position" content="2">
                     </li>
                 </ol> 
             </div>
@@ -422,31 +423,31 @@
                             <tr>
                                 <td>
                                     <span class="date">Mardi 30 mai 2017</span>
-                                    <a href="" title="">Ajouter à mon agenda</a>
+                                    <a href="" title="" rel="nofollow">Ajouter à mon agenda</a>
                                 </td>
                                 <td>
                                     <span class="date">Mardi 30 mai 2017</span>
-                                    <a href="" title="">Ajouter à mon agenda</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="date">Mardi 30 mai 2017</span>
-                                    <a href="" title="">Ajouter à mon agenda</a>
-                                </td>
-                                <td>
-                                    <span class="date">Mardi 30 mai 2017</span>
-                                    <a href="" title="">Ajouter à mon agenda</a>
+                                    <a href="" title="" rel="nofollow">Ajouter à mon agenda</a>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <span class="date">Mardi 30 mai 2017</span>
-                                    <a href="" title="">Ajouter à mon agenda</a>
+                                    <a href="" title="" rel="nofollow">Ajouter à mon agenda</a>
                                 </td>
                                 <td>
                                     <span class="date">Mardi 30 mai 2017</span>
-                                    <a href="" title="">Ajouter à mon agenda</a>
+                                    <a href="" title="" rel="nofollow">Ajouter à mon agenda</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="date">Mardi 30 mai 2017</span>
+                                    <a href="" title="" rel="nofollow">Ajouter à mon agenda</a>
+                                </td>
+                                <td>
+                                    <span class="date">Mardi 30 mai 2017</span>
+                                    <a href="" title="" rel="nofollow">Ajouter à mon agenda</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -517,19 +518,19 @@
                         </fieldset>
                     </form>
                     <form action="" method="" name="" class="inline-form">
-                        <div class="row no-gutters align-items-end">
-                            <div class="form-group">
+                        <div class="flex-row d-flex align-items-end">
+                            <div class="form-group mRight20">
                                 <label for="text">Field</label>
                                 <input type="text" id="text" placeholder="Item">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mRight20">
                                 <input type="text" id="text" placeholder="Item">
                             </div>
                         </div>
-                        <div class="row no-gutters align-items-end">
-                            <div class="form-group">
+                        <div class="flex-row d-flex align-items-end">
+                            <div class="form-group mRight20">
                                 <label for="select">Field</label>
-                                <div class="select-custom dropdown" id="#select">
+                                <div class="select-custom dropdown" id="#select_1">
                                     <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
                                         Item
                                         <i class="icon icon-chevron-right"></i>
@@ -555,14 +556,42 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <div class="select-custom dropdown" id="#select">
+                            <div class="form-group mRight20">
+                                <div class="select-custom dropdown" id="#select_2">
                                     <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
                                         Item
                                         <i class="icon icon-chevron-right"></i>
                                     </button>
                                     <div class="dropdown-menu" role="combobox">
                                         <ul class="dropdown-menu-inner list-unstyled" role="listbox" aria-expanded="false" >
+                                            <li data-original-index="0" class="selected dropdown-item">
+                                                <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
+                                                    <span class="text">Item</span>
+                                                </a>
+                                            </li>
+                                            <li data-original-index="0" class="selected dropdown-item">
+                                                <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
+                                                    <span class="text">Item</span>
+                                                </a>
+                                            </li>
+                                            <li data-original-index="0" class="selected dropdown-item">
+                                                <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
+                                                    <span class="text">Item</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-4">
+                                <div class="select-custom dropdown" id="#select_3">
+                                    <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
+                                        Sélectionner une aide
+                                        <i class="icon icon-chevron-right"></i>
+                                    </button>
+                                    <div class="dropdown-menu autocompletion" role="combobox">
+                                        <input type="text">
+                                        <ul class="dropdown-menu-inner list-unstyled " role="listbox" aria-expanded="false" >
                                             <li data-original-index="0" class="selected dropdown-item">
                                                 <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
                                                     <span class="text">Item</span>
@@ -805,8 +834,10 @@
                     <div class="col-12 col-lg-4">
                         <div class="cnc-like-item">
                             <div class="category">
-                                <a href="" title="">Cinéma</a>
-                                <span>International</span>
+                                <ul class="list-unstyled">
+                                    <li><a href="" title="">Cinéma</a></li>
+                                    <li><a href="" title="">International</a></li>
+                                </ul>
                             </div>
                             <h3>
                                 <a href="" title="">
@@ -834,9 +865,11 @@
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cnc-like-item">
-                            <div class="category">
-                                <a href="" title="">Cinéma</a>
-                                <span>International</span>
+                             <div class="category">
+                                <ul class="list-unstyled">
+                                    <li><a href="" title="">Cinéma</a></li>
+                                    <li><a href="" title="">International</a></li>
+                                </ul>
                             </div>
                             <h3>
                                 <a href="" title="">
@@ -864,9 +897,11 @@
                     </div>
                     <div class="col-12 col-lg-4">
                         <div class="cnc-like-item">
-                            <div class="category">
-                                <a href="" title="">Cinéma</a>
-                                <span>International</span>
+                             <div class="category">
+                                <ul class="list-unstyled">
+                                    <li><a href="" title="">Cinéma</a></li>
+                                    <li><a href="" title="">International</a></li>
+                                </ul>
                             </div>
                             <h3>
                                 <a href="" title="">

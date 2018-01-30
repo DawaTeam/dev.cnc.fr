@@ -3,10 +3,31 @@ var navigation = {
 	init : function() {
 		var windowWidth = $(window).width();
 		if ( windowWidth >= 992 ) {
-
+		    
 		    var itemNav = $(".navigation-main li.with-sub-menu");
 		    itemNav.addClass('pos-unset');
 		    itemNav.parents('.col-9').addClass('pos-unset');
+			
+			if (Modernizr.touchevents) {
+				itemNav.one("click", false, function(e){
+			    	e.preventDefault();
+			    	var redirectUrl = $(this).attr('href');
+			    	var	subMenu = $(this).children('.mega-sub-menu');
+			    	window.location = redirectUrl;
+			    	$(this).toggleClass('active');
+			    	subMenu.toggleClass('open fadeIn');
+
+			    	if ( $(this).hasClass('active') ) {
+			    		
+			    	}
+			   	});
+			   	$('.header-bottom, .header-top').on("click", function() {
+			   		itemNav.removeClass('active');
+			   		$('.mega-sub-menu').removeClass('active');
+			   		
+			   	})
+			}
+
 		      
 		    itemNav.on({
 	    		mouseenter: function() {
@@ -25,8 +46,10 @@ var navigation = {
 		else {
 			var navTrigger   	= $(".header-mobile .nav-icon"),
 	      		nav     		= $("nav.navigation-main"),
-	      		subMenuTrigger	= $(".navigation-main li.with-sub-menu i");
+	      		subMenuTrigger	= $(".navigation-main li.with-sub-menu i"),
+	      		wrapperNav		= $("nav.navigation-main .scrollable");
 	      
+	      	wrapperNav.css('height', $(window).height());
 		    navTrigger.on("click", function() {
 		    	if ( !$(this).hasClass('open') ) {
 		    		$(this).addClass('open');
@@ -83,14 +106,22 @@ var header = {
 				$('header').find('.trigger-search').removeClass('active');
 
 				if ( $(window).width() <= 991 ) {
-					$(".header-mobile .nav-icon").removeClass('open');
-					$("nav.navigation-main").removeClass('open');
+					if ( $(".header-main .header-mobile .nav-icon").hasClass('open')) {
+						$('.header-scroll .header-mobile .nav-icon').addClass('open');
+					} else {
+						$('.header-scroll .header-mobile .nav-icon').removeClass('open');
+					}
 				}
 
 		    } 	
 		    else if( st > mainHeaderHeight ) {
 	            $('header.header-scroll').addClass('show');
 		        $('header.header-scroll').removeClass('hide');
+		        if ( $(".header-scroll .header-mobile .nav-icon").hasClass('open')) {
+						$('.header-main .header-mobile .nav-icon').addClass('open');
+				} else {
+					$('.header-main .header-mobile .nav-icon').removeClass('open');
+				}
 		    }
 		    
 		}
@@ -113,7 +144,7 @@ var header = {
 			} else {
 				$('.backdrop').remove();
 				searchInput.val('');
-				$('header').css("z-index", 1);
+				$('header').css("z-index", 2);
 			}
 
 		});
@@ -155,32 +186,103 @@ var accordion = {
 /* # STICKY SCROLLSPY NAV # */
 var stickyNav = {
 	init: function() {
-		var elements = $('.sticky-nav');
-		Stickyfill.add(elements);
+		// Get Sticky
+		var stickyNav 				= $('.sticky-nav'),
+			stickyNavHeight			= $('.sticky-nav ul').height() + 100;
+			contentArticle 			= $('.article-content-scroll'),
+			contentArticleOffset	= $('.article-content-scroll').offset().top - 80,
+			reboundOffset 			= $(".rebound").offset().top;
+		
+		$(window).on('scroll', function() {
+			var scrollTop = $(this).scrollTop();
+			
+	        if ( contentArticleOffset < scrollTop && Math.abs(reboundOffset-stickyNavHeight) > scrollTop ) {
+	            stickyNav.addClass('fixed');
+	            contentArticle.parent().addClass('offset-xl-2');
+	        } 
+	        else {
+	        	stickyNav.removeClass('fixed');
+	        	contentArticle.eq(0).parent().removeClass('offset-xl-2');
+	        }
+		});
+		
+		// Add Offset on click
+		var navOffset = $('.header-scroll').height();
+		$('.sticky-nav ul li a').on('click', function(e) {
+		    var href 		= $(this).attr('href'),
+		    	offsetTop 	= $(this).offset().top;
+		    
+		    e.preventDefault();
+
+		    // Explicitly scroll to where the browser thinks the element
+		    // is, but apply the offset.
+		    $(href)[0].scrollIntoView();
+		    window.scrollBy(0, -navOffset-30);
+
+		});
 	}
 }
 /* # STICKY SHARE ARTICLE # */
-var stickyShare = {
+var share = {
 	init: function() {
-		var windowWidth = $(window).width();
-		var share 			= $(".article-head .share"),
-			titleOffset		= $("h1").offset().top,
-	    	reboundOffset 	= $(".rebound").offset().top;
-		$(window).on('scroll', function() {
-			var scrollTop 	= $(this).scrollTop();
-			shareOffset 	= share.offset().top;
-	        if ( titleOffset < scrollTop && (reboundOffset-400) > scrollTop) {
-	            share.addClass('fixed');
-	        } else {
-	        	share.removeClass('fixed');
-	        }
-		});
-
+		var share = $(".article-head .share");
 		share.on('click', function() {
 			var shareOptions = $(this).children("ul");
 			$(this).toggleClass('active');
 			shareOptions.toggleClass('open fadeIn');
 
 		})
+	}, 
+	sticky : function() {
+		var share 			= $(".article-head .share"),
+			titleOffset		= $("h1").offset().top,
+	    	reboundOffset 	= $(".rebound").offset().top;
+		$(window).on('scroll', function() {
+			var scrollTop 	= $(this).scrollTop();
+	        if ( titleOffset < scrollTop && (reboundOffset-400) > scrollTop) {
+	            share.addClass('fixed');
+	        } else {
+	        	share.removeClass('fixed');
+	        }
+		});
+	}
+}
+/* # FULL IMAGE WITH TEXT COVER # */
+var updateCover = {
+	init: function() {
+		var cover = $('.full-screen-image-w-text');
+		cover.each(function() {
+			var data_bg = $(this).data("bg");
+			$(this).css('background-image', 'url('+data_bg+')');
+		})
+	}
+}
+
+
+/* # DATE PICKER# */
+var datePicker = {
+	init: function() {
+		var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+        $('#startDate').datepicker({
+        	locale: 'fr-fr',
+        	format: 'dd/mm/yyyy',
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: today,
+            maxDate: function() {
+                return $('#endDate').val();
+            }
+        });
+
+        $('#endDate').datepicker({
+        	locale: 'fr-fr',
+        	format: 'dd/mm/yyyy',
+            uiLibrary: 'bootstrap4',
+            iconsLibrary: 'fontawesome',
+            minDate: function() {
+                return $('#startDate').val();
+            }
+        });
+		
 	}
 }
