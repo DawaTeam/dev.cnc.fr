@@ -890,6 +890,8 @@ header {
                 height: 110px;
                 line-height: 110px;
             }
+            
+
             img {
                 width: 100%;
                 height:auto;
@@ -910,6 +912,7 @@ header {
                     height:auto;
                 }
             }
+            
         }
         
         &.home {
@@ -930,10 +933,29 @@ header {
                     text-align: left;
                     z-index: 2;
                 }
+                a {
+                    text-decoration: none;
+                    @include media-breakpoint-up(lg) {
+                        display: flex;
+                        align-items: start;
+                    }
+                }
                 img {
                      @include media-breakpoint-up(lg) {
                         max-width: 100%;
                     }
+                }
+                h1 {
+                    margin: 0;
+                    padding: 30px 30px 30px 0;
+                    width: 100%;
+                    background:#FFF;
+                    align-self: center;
+                    text-align: justify;
+                    font-family: "AkkuratBold";
+                    color:#000;
+                    font-size: 1rem;
+                    
                 }
 
             }
@@ -1999,8 +2021,27 @@ header {
 
 /*-- Home --*/
 .home {
+    .main-title {
+        h1 {
+            margin: 60px 0 20px;
+            font-family: "AkkuratLight";
+            font-size: 2rem;
+            color: #222;
+            text-align: left;
+            @include media-breakpoint-up(md) {
+                font-size: 2.6rem;
+            }
+        }
+        .desc {
+            margin-bottom: 10px;
+        }
+        .link-icon {
+            i { margin-left: -6px; }
+        }
+    }
     .highlight {
         margin-top: 0;
+
         .highlight-item  {
             .highlight-infos {
                 @include media-breakpoint-up(lg) {
@@ -2102,6 +2143,9 @@ header {
 }
 .currently {
     margin: 60px 0;
+    .related-articles {
+        margin-top: 20px;
+    }
 }
 /*-- Professionnels --*/
 .professionnels {
@@ -2784,6 +2828,9 @@ header {
                 }
             }
         }
+    }
+    .text {
+        margin:40px 0;
     }
     .tags {
         font-family: Arial;

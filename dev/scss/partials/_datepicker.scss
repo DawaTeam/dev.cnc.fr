@@ -1,0 +1,192 @@
+.gj-button {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    color: #000;
+    border-radius: 3px;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.gj-unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.gj-margin-left-5 {
+    margin-left: 5px;
+}
+
+.gj-margin-left-10 {
+    margin-left: 10px;
+}
+
+.gj-width-full {
+    width: 100%;
+}
+
+.gj-cursor-pointer {
+    cursor: pointer;
+}
+
+.gj-text-align-center {
+    text-align: center;
+}
+
+.gj-hidden {
+    display: none;
+}
+
+.gj-datepicker {
+    width:100%;
+    position: relative;
+    display: table;
+}
+
+.gj-datepicker [role="input"] {
+    display: table-cell;
+    width: 100%;
+}
+
+.gj-datepicker [role="input"]::-ms-clear {
+    display: none;
+}
+
+.gj-datepicker [role="right-icon"] {
+    cursor: pointer;
+    display: table-cell;
+}
+
+.gj-calendar {
+    position: absolute;
+    z-index: 100;
+}
+.gj-calendar table tr[role="month-manager"] {
+    border-bottom: 1px solid #E4E4E4;
+}
+.gj-calendar table tr[role="month-manager"] th {
+    cursor: pointer;
+    height:50px;
+}
+
+.gj-calendar table tr[role="month-manager"] th div[role="month"] {
+    width: 100%;
+    text-align: center;
+    font-family: "AkkuratBold";
+    font-size: 1.6rem;
+}
+.gj-calendar table tr[role="week-days"] th div {
+    font-family: "AkkuratBold";
+    font-size: 1.4rem;
+}
+
+/* Bootstrap */
+.gj-datepicker-bootstrap input:focus {
+    box-shadow: none;
+}
+
+.gj-calendar-bootstrap {
+    border: 1px solid #E4E4E4;
+    border-radius: 4px;
+    padding: 4px;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+}
+
+.gj-calendar-bootstrap table tr td div,
+.gj-calendar-bootstrap table tr th div {
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    font-family: "AkkuratRegular";
+    font-size: 1.4rem;
+    color:$black;
+}
+
+
+.gj-calendar-bootstrap table tr th div i,
+.gj-calendar-bootstrap table tr th div span {
+    line-height: 30px;
+    font-size: 2rem;
+}
+.gj-calendar-bootstrap table tr th div i:hover {
+    color:$green;
+}
+
+.gj-calendar-bootstrap table tr th:first-child div i {
+    display: inline-block;
+    transform:rotate(180deg);
+}
+
+.gj-calendar-bootstrap table tr td.focused div,
+.gj-calendar-bootstrap table tr td.gj-cursor-pointer div:hover {
+    background: $green;
+    color: #FFF;
+    border-radius: 4px;
+}
+
+.gj-calendar-bootstrap table tr td.today div {
+    color: $green;
+}
+
+.gj-calendar-bootstrap table tr td.selected div  {
+    color: #fff;
+    background:$green;
+    border-color: $green;
+    border-radius: 4px;
+}
+
+.gj-calendar-bootstrap table tr td.other-month div,
+.gj-calendar-bootstrap table tr td.disabled div {
+    color: $grey;
+}
+
+/* Bootstrap 4 */
+.gj-datepicker-bootstrap span[role="right-icon"].input-group-append,
+.gj-datepicker-bootstrap span[role="right-icon"].input-group-prepend {
+    position: absolute;
+    right:20px;
+    top: 50%;
+    margin-top: -7px;
+}
+
+.gj-datepicker-bootstrap span[role="right-icon"] .input-group-text {
+    border-left: 0px;
+}
+
+
+.gj-datepicker-bootstrap span[role="right-icon"] .input-group-text i {
+    display: inline-block;
+    font-size: 1.4rem;
+    transform: rotate(90deg)
+}
+.gj-timepicker {
+    position: relative;
+    display: table;
+}
+
+.gj-timepicker [role="input"] {
+    display: table-cell;
+    width: 100%;
+}
+
+.gj-timepicker [role="input"]::-ms-clear {
+    display: none;
+}
+
+.gj-timepicker [role="right-icon"] {
+    cursor: pointer;
+    display: table-cell;
+}
+
+.gj-clock {
+    position: absolute;
+    z-index: 4;
+}
