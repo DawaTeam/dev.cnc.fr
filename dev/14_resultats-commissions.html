@@ -82,7 +82,7 @@ include "header-main.html"
                     <div class="form-group col-12 col-lg-3">
                         <label for="select">Secteur</label>
                         <div class="select-custom dropdown" id="#select_1">
-                            <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
+                            <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 Sélectionnez
                                 <i class="icon icon-chevron-right"></i>
                             </button>
@@ -110,7 +110,7 @@ include "header-main.html"
                     <div class="form-group col-12 col-lg-3">
                          <label for="select">Année</label>
                         <div class="select-custom dropdown" id="#select_2">
-                            <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
+                            <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 Sélectionnez
                                 <i class="icon icon-chevron-right"></i>
                             </button>
@@ -138,7 +138,7 @@ include "header-main.html"
                     <div class="form-group col-12 col-lg-3">
                         <label for="select">Nom de l'aide</label>
                         <div class="select-custom dropdown" id="#select_3">
-                            <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
+                            <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 Sélectionner une aide
                                 <i class="icon icon-chevron-right"></i>
                             </button>
@@ -282,6 +282,7 @@ include "footer.html"
 <script>
     $(document).ready(function() {
         navigation.init();
+        navigation.resize();
         header.stickySearch();
         header.sticky();
     });

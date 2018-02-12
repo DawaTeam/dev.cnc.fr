@@ -85,7 +85,7 @@ include "header-main.html"
                         <div class="form-group col-12 col-lg-4">
                              <label for="select">Mentions</label>
                             <div class="select-custom dropdown" id="#select_2">
-                                <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
+                                <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     Sélectionnez
                                     <i class="icon icon-chevron-right"></i>
                                 </button>
@@ -261,6 +261,7 @@ include "footer.html"
 <script>
     $(document).ready(function() {
         navigation.init();
+        navigation.resize();
         header.stickySearch();
         header.sticky();
         datePicker.init();

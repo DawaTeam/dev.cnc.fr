@@ -26,7 +26,8 @@
         <div class="col-3 col-sm-2 col-lg-4 col-xl-3">
             <div class="logo">
                 <a href="" title="" alt="">
-                    <img src="images/logo_cnc_transparent.svg" alt="" class="d-none d-lg-inline-block">
+                    <img src="images/logo_cnc_transparent.svg" alt="" class="d-none d-lg-inline-block ">
+                   <!--  <h1 class="baseline d-none d-lg-inline-block">centre national <br> du cinéma et de <br> l'image animée</h1> -->
                     <img src="images/logo_cnc_small.svg" alt="" class="d-lg-none">
                 </a>
             </div>
@@ -1511,7 +1512,7 @@
                             <div class="form-group col-12 col-lg-3">
                                 <label for="select">Phase du projet</label>
                                 <div class="select-custom dropdown" id="#select_1">
-                                    <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
+                                    <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         Sélectionnez
                                         <i class="icon icon-chevron-right"></i>
                                     </button>
@@ -1539,7 +1540,7 @@
                             <div class="form-group col-12 col-lg-3">
                                  <label for="select">Type du projet</label>
                                 <div class="select-custom dropdown" id="#select_2">
-                                    <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
+                                    <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         Sélectionnez
                                         <i class="icon icon-chevron-right"></i>
                                     </button>
@@ -1567,7 +1568,7 @@
                             <div class="form-group col-12 col-lg-3">
                                  <label for="select">Demandeur</label>
                                 <div class="select-custom dropdown" id="#select_2">
-                                    <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" role="button" title="Select" aria-expanded="false">
+                                    <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         Sélectionnez
                                         <i class="icon icon-chevron-right"></i>
                                     </button>
@@ -2136,6 +2137,7 @@
 <script>
     $(document).ready(function() {
         navigation.init();
+        navigation.resize();
         header.stickySearch();
         header.sticky();
         updateCover.init();
