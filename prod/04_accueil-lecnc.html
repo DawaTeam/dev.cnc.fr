@@ -27,7 +27,8 @@
         <div class="col-3 col-sm-2 col-lg-4 col-xl-3">
             <div class="logo">
                 <a href="" title="" alt="">
-                    <img src="images/logo_cnc_transparent.svg" alt="" class="d-none d-lg-inline-block">
+                    <img src="images/logo_cnc_transparent.svg" alt="" class="d-none d-lg-inline-block ">
+                   <!--  <h1 class="baseline d-none d-lg-inline-block">centre national <br> du cinéma et de <br> l'image animée</h1> -->
                     <img src="images/logo_cnc_small.svg" alt="" class="d-lg-none">
                 </a>
             </div>
@@ -1835,6 +1836,7 @@
 <script>
     $(document).ready(function() {
         navigation.init();
+        navigation.resize();
         header.stickySearch();
         header.sticky();
         updateCover.init();

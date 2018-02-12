@@ -154,7 +154,7 @@ var header = {
 			} else {
 				$('.backdrop').remove();
 				searchInput.val('');
-				$('header').css("z-index", 2);
+				$('header').css("z-index", 110);
 			}
 
 		});
@@ -198,7 +198,8 @@ var stickyNav = {
 	init: function() {
 		// Get Sticky
 		var stickyNav 				= $('.sticky-nav'),
-			stickyNavHeight			= $('.sticky-nav ul').height() + 100;
+			stickyNavHeight			= $('.sticky-nav ul').height() + 100,
+			stickyParentWidth		= stickyNav.parent().width(),
 			contentArticle 			= $('.article-content-scroll'),
 			contentArticleOffset	= $('.article-content-scroll').offset().top - 80,
 			reboundOffset 			= $(".rebound").offset().top;
@@ -207,7 +208,9 @@ var stickyNav = {
 			var scrollTop = $(this).scrollTop();
 			
 	        if ( contentArticleOffset < scrollTop && Math.abs(reboundOffset-stickyNavHeight) > scrollTop ) {
+	        	var newStickyWidth = parseFloat( (16.666666666 * stickyParentWidth) / 100 ); 
 	            stickyNav.addClass('fixed');
+	            stickyNav.css("max-width", newStickyWidth+"px");
 	            contentArticle.parent().addClass('offset-xl-2');
 	        } 
 	        else {
@@ -269,7 +272,7 @@ var updateCover = {
 }
 
 
-/* # DATE PICKER# */
+/* # DATE PICKER # */
 var datePicker = {
 	init: function() {
 		var today = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
@@ -296,3 +299,19 @@ var datePicker = {
 		
 	}
 }
+
+/* # GRANT SEARCH # */
+var displayMore = {
+	init : function() {
+		var triggerMore = $('.search-form .link-icon.d-more');
+
+		triggerMore.on('click', function(e) {
+			e.preventDefault();
+			var items = $(this).siblings('.d-none');
+			items.removeClass('d-none');
+
+
+		})
+	}
+}
+
