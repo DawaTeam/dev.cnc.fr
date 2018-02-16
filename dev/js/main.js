@@ -7,6 +7,9 @@ var navigation = {
 		    var itemNav = $(".navigation-main li.with-sub-menu");
 		    itemNav.addClass('pos-unset');
 		    itemNav.parents('.col-9').addClass('pos-unset');
+		    wrapperNav		= $("nav.navigation-main .scrollable");
+			
+		    wrapperNav.css('height', 'auto');
 			
 			if (Modernizr.touchevents) {
 				itemNav.one("click", false, function(e){
@@ -108,16 +111,28 @@ var header = {
 		    if ( st < mainHeaderHeight ){
 		        $('header.header-scroll').removeClass('show');
 	            $('header.header-scroll').addClass('hide');
-	            $('.backdrop').remove();
-				$('.expanded-search input[type=text]').val('');
-				$('.expanded-search').removeClass('open fadeInDown');
-				$('header').find('.trigger-search').removeClass('active');
+	            
+				if ( $(window).width() >= 991 ) {
+					$('.backdrop').remove();
+					$('.expanded-search input[type=text]').val('');
+					$('.expanded-search').removeClass('open fadeInDown');
+					$('header').find('.trigger-search').removeClass('active');
+				}
 
 				if ( $(window).width() <= 991 ) {
 					if ( $(".header-main .header-mobile .nav-icon").hasClass('open')) {
 						$('.header-scroll .header-mobile .nav-icon').addClass('open');
 					} else {
 						$('.header-scroll .header-mobile .nav-icon').removeClass('open');
+					}
+					if ( $(".header-main .header-mobile .trigger-search").hasClass('active')) {
+						$('.header-scroll .header-mobile .trigger-search').addClass('active');
+						$('.header-scroll .header-mobile .expanded-search').addClass('open fadeInDown');
+						$('.header-scroll').find('.col-9').addClass('pos-unset');
+					} else {
+						$('.header-scroll .header-mobile .nav-icon').removeClass('open');
+						$('.header-scroll .header-mobile .trigger-search').removeClass('active');
+						$('.header-scroll .header-mobile .expanded-search').removeClass('open fadeInDown');
 					}
 				}
 
@@ -147,6 +162,7 @@ var header = {
 			$(this).parents('.col-9').addClass('pos-unset');
 			$("nav.navigation-main").removeClass('open');
 			$(".header-mobile .nav-icon").removeClass('open');
+			searchInput.focus();
 			
 			if ( $(this).hasClass('active') ) {
 				backDrop.appendTo($('body'));
