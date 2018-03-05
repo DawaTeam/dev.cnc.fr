@@ -210,6 +210,29 @@ var accordion = {
 		
 	}
 }
+
+/* # SELECT # */
+var customSelect = {
+	init : function() {
+		var select = $('.select-custom select');
+		var select_autocompletion = $('.select-custom select.autocompletion');
+		select.select2({
+			 minimumResultsForSearch: Infinity,
+			 //width: 'element',
+		});
+		select_autocompletion.select2({
+			//width: 'element',
+			language: {
+				noResults: function () {
+			   		return "Aucun résultat trouvé";
+			  	}
+			}
+		});
+
+	}
+}
+
+
 /* # STICKY SCROLLSPY NAV # */
 var stickyNav = {
 	init: function() {

@@ -99,7 +99,14 @@ include "header-home.html"
                         <div class="row align-items-end">
                             <div class="form-group col-12 col-lg-3">
                                 <label for="select">Phase du projet</label>
-                                <div class="select-custom dropdown" id="#select_1">
+                                <div class="select-custom">
+                                    <select name="" id="">
+                                        <option value="">Acquisition</option>
+                                        <option value="">Coproduction</option>
+                                        <option value="">Diffusion</option>
+                                    </select>
+                                </div>
+                               <!--  <div class="select-custom dropdown" id="#select_1">
                                     <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         Sélectionnez
                                         <i class="icon icon-chevron-right"></i>
@@ -123,11 +130,19 @@ include "header-home.html"
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
+                                
                             </div>
                             <div class="form-group col-12 col-lg-3">
-                                 <label for="select">Type du projet</label>
-                                <div class="select-custom dropdown" id="#select_2">
+                                <label for="select">Type du projet</label>
+                                <div class="select-custom">
+                                    <select name="" id="">
+                                        <option value="">Court Métrage</option>
+                                        <option value="">Documentaire</option>
+                                        <option value="">Long Métrage</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="select-custom dropdown" id="#select_2">
                                     <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         Sélectionnez
                                         <i class="icon icon-chevron-right"></i>
@@ -151,11 +166,19 @@ include "header-home.html"
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="form-group col-12 col-lg-3">
                                  <label for="select">Demandeur</label>
-                                <div class="select-custom dropdown" id="#select_2">
+                                 <div class="select-custom">
+                                    <select name="" id="" class="autocompletion">
+                                        <option value="">Sélectionnez </option>
+                                        <option value="">Auteur</option>
+                                        <option value="">Distributeur</option>
+                                        <option value="">Exploitant</option>
+                                    </select>
+                                </div>
+                                <!-- <div class="select-custom dropdown" id="#select_2">
                                     <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         Sélectionnez
                                         <i class="icon icon-chevron-right"></i>
@@ -179,7 +202,7 @@ include "header-home.html"
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="form-group col-12 col-lg-3">
                                 <input type="submit" value="Rechercher" class="button button-green">
@@ -600,6 +623,7 @@ include "footer.html"
         header.stickySearch();
         header.sticky();
         updateCover.init();
+        customSelect.init();
         
     });
 </script>

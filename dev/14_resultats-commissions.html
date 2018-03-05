@@ -81,7 +81,14 @@ include "header-main.html"
                 <div class="row align-items-end">
                     <div class="form-group col-12 col-lg-3">
                         <label for="select">Secteur</label>
-                        <div class="select-custom dropdown" id="#select_1">
+                         <div class="select-custom">
+                                    <select name="" id="">
+                                        <option value="">Cinéma</option>
+                                        <option value="">Séries & fictions TV</option>
+                                        <option value="">Jeu vidéo</option>
+                                    </select>
+                                </div>
+                        <!-- <div class="select-custom dropdown" id="#select_1">
                             <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 Sélectionnez
                                 <i class="icon icon-chevron-right"></i>
@@ -105,11 +112,18 @@ include "header-main.html"
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-group col-12 col-lg-3">
                          <label for="select">Année</label>
-                        <div class="select-custom dropdown" id="#select_2">
+                        <div class="select-custom">
+                            <select name="" id="">
+                                <option value="">2017</option>
+                                <option value="">2016</option>
+                                <option value="">2015</option>
+                            </select>
+                        </div>
+                        <!-- <div class="select-custom dropdown" id="#select_2">
                             <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 Sélectionnez
                                 <i class="icon icon-chevron-right"></i>
@@ -133,11 +147,19 @@ include "header-main.html"
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-group col-12 col-lg-3">
                         <label for="select">Nom de l'aide</label>
-                        <div class="select-custom dropdown" id="#select_3">
+                        <div class="select-custom">
+                            <select name="" id="" class="autocompletion">
+                                <option value="">Sélectionnez une aide </option>
+                                <option value="">Auteur</option>
+                                <option value="">Distributeur</option>
+                                <option value="">Exploitant</option>
+                            </select>
+                        </div>
+                        <!-- <div class="select-custom dropdown" id="#select_3">
                             <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 Sélectionner une aide
                                 <i class="icon icon-chevron-right"></i>
@@ -162,7 +184,7 @@ include "header-main.html"
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="form-group col-12 col-lg-3">
                         <input type="submit" value="Rechercher" class="button button-green">
@@ -285,6 +307,7 @@ include "footer.html"
         navigation.resize();
         header.stickySearch();
         header.sticky();
+        customSelect.init();
     });
 </script>
 
