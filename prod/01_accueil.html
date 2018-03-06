@@ -1820,86 +1820,35 @@
                 <div class="row align-items-end">
                     <div class="form-group col-12 col-lg-3">
                         <label for="select">Phase du projet</label>
-                        <div class="select-custom dropdown" id="#select_1">
-                            <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                Choisir la phase du projet
-                                <i class="icon icon-chevron-right"></i>
-                            </button>
-                            <div class="dropdown-menu" role="combobox">
-                                <ul class="dropdown-menu-inner list-unstyled" role="listbox" aria-expanded="false" >
-                                    <li data-original-index="0" class="selected dropdown-item">
-                                        <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
-                                            <span class="text">Acquisition </span>
-                                        </a>
-                                    </li>
-                                    <li data-original-index="0" class="selected dropdown-item">
-                                        <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
-                                            <span class="text">Coproduction </span>
-                                        </a>
-                                    </li>
-                                    <li data-original-index="0" class="selected dropdown-item">
-                                        <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
-                                            <span class="text">Diffusion </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="select-custom">
+                            <select name="" id="">
+                                <option value="">Choisir la phase du projet</option>
+                                <option value="">Acquisition</option>
+                                <option value="">Coproduction</option>
+                                <option value="">Diffusion</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group col-12 col-lg-3">
-                         <label for="select">Type du projet</label>
-                        <div class="select-custom dropdown" id="#select_2">
-                            <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                Choisir le type du projet
-                                <i class="icon icon-chevron-right"></i>
-                            </button>
-                            <div class="dropdown-menu" role="combobox">
-                                <ul class="dropdown-menu-inner list-unstyled" role="listbox" aria-expanded="false" >
-                                    <li data-original-index="0" class="selected dropdown-item">
-                                        <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
-                                            <span class="text">Court Métrage</span>
-                                        </a>
-                                    </li>
-                                    <li data-original-index="0" class="selected dropdown-item">
-                                        <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
-                                            <span class="text">Documentaire </span>
-                                        </a>
-                                    </li>
-                                    <li data-original-index="0" class="selected dropdown-item">
-                                        <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
-                                            <span class="text">Long Métrage </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                        <label for="select">Type du projet</label>
+                        <div class="select-custom">
+                            <select name="" id="">
+                                <option value="">Choisir le type du projet</option>
+                                <option value="">Court Métrage</option>
+                                <option value="">Documentaire</option>
+                                <option value="">Long Métrage</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group col-12 col-lg-3">
                          <label for="select">Demandeur</label>
-                        <div class="select-custom dropdown" id="#select_2">
-                            <button type="button" class="button button-outline dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                Vous êtes
-                                <i class="icon icon-chevron-right"></i>
-                            </button>
-                            <div class="dropdown-menu" role="combobox">
-                                <ul class="dropdown-menu-inner list-unstyled" role="listbox" aria-expanded="false" >
-                                    <li data-original-index="0" class="selected dropdown-item">
-                                        <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
-                                            <span class="text">Auteur</span>
-                                        </a>
-                                    </li>
-                                    <li data-original-index="0" class="selected dropdown-item">
-                                        <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
-                                            <span class="text">Distributeur  </span>
-                                        </a>
-                                    </li>
-                                    <li data-original-index="0" class="selected dropdown-item">
-                                        <a tabindex="0" class="" role="option" aria-disabled="false" aria-selected="true">
-                                            <span class="text">Exploitant </span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                         <div class="select-custom">
+                            <select name="" id="">
+                                <option value="">Vous êtes</option>
+                                <option value="">Auteur</option>
+                                <option value="">Distributeur</option>
+                                <option value="">Exploitant</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group col-12 col-lg-3">
@@ -2151,6 +2100,7 @@
         header.stickySearch();
         header.sticky();
         updateCover.init();
+        customSelect.init();
         
     });
 </script>
