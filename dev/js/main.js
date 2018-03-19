@@ -242,21 +242,24 @@ var stickyNav = {
 			stickyParentWidth		= stickyNav.parent().width(),
 			contentArticle 			= $('.article-content-scroll'),
 			contentArticleOffset	= $('.article-content-scroll').offset().top - 80,
-			reboundOffset 			= $(".rebound").offset().top;
-		
+			ankleOffset				= $(".ankle").offset().top;
+
+			
 		$(window).on('scroll', function() {
 			var scrollTop = $(this).scrollTop();
-			
-	        if ( contentArticleOffset < scrollTop && Math.abs(reboundOffset-stickyNavHeight) > scrollTop ) {
+		
+			if ( contentArticleOffset < scrollTop && Math.abs(ankleOffset-stickyNavHeight) > scrollTop ) {
 	        	var newStickyWidth = parseFloat( (16.666666666 * stickyParentWidth) / 100 ); 
 	            stickyNav.addClass('fixed');
 	            stickyNav.css("max-width", newStickyWidth+"px");
 	            contentArticle.parent().addClass('offset-xl-2');
-	        } 
-	        else {
+	        } else {
 	        	stickyNav.removeClass('fixed');
 	        	contentArticle.eq(0).parent().removeClass('offset-xl-2');
 	        }
+		
+			
+	        
 		});
 		
 		// Add Offset on click
@@ -289,14 +292,18 @@ var share = {
 	sticky : function() {
 		var share 			= $(".article-head .share"),
 			titleOffset		= $("h1").offset().top,
-	    	reboundOffset 	= $(".rebound").offset().top;
+			ankleOffset		= $(".ankle").offset().top;
+		
 		$(window).on('scroll', function() {
 			var scrollTop 	= $(this).scrollTop();
-	        if ( titleOffset < scrollTop && (reboundOffset-400) > scrollTop) {
+	        if ( titleOffset < scrollTop && (ankleOffset-400) > scrollTop) {
 	            share.addClass('fixed');
 	        } else {
 	        	share.removeClass('fixed');
 	        }
+			
+				
+			
 		});
 	}
 }
@@ -354,4 +361,20 @@ var displayMore = {
 		})
 	}
 }
-
+/* # TRUNCATE TITLE # */
+var truncate = {
+	init: function(str, length, ending) {
+		var str = $('.highlight-item .excerpt');
+		if (length == null) {
+      		length = 35;
+    	}
+    	if (ending == null) {
+      		ending = '...';
+    	}
+    	if (str.length > length) {
+      		return str.split(" ").splice(0,length).join(" ") + ending;
+	    } else {
+	    	return str;
+	    }
+	}
+}
