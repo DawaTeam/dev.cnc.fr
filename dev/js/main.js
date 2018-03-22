@@ -362,19 +362,47 @@ var displayMore = {
 	}
 }
 /* # TRUNCATE TITLE # */
-var truncate = {
-	init: function(str, length, ending) {
-		var str = $('.highlight-item .excerpt');
-		if (length == null) {
-      		length = 35;
-    	}
-    	if (ending == null) {
-      		ending = '...';
-    	}
-    	if (str.length > length) {
-      		return str.split(" ").splice(0,length).join(" ") + ending;
-	    } else {
-	    	return str;
-	    }
+// var truncate = {
+// 	init: function(str, length, ending) {
+// 		var str = $('.highlight-item .excerpt');
+// 		if (length == null) {
+//       		length = 35;
+//     	}
+//     	if (ending == null) {
+//       		ending = '...';
+//     	}
+//     	if (str.length > length) {
+//       		return str.split(" ").splice(0,length).join(" ") + ending;
+// 	    } else {
+// 	    	return str;
+// 	    }
+// 	}
+// }
+
+
+/* # TO TOP # */
+var toTop = {
+	init: function() {
+		var toTop =	$(".to-top");	
+		
+		toTop.on('click',function(){
+			$('html, body').animate({scrollTop:0}, 1200, "easeOutQuart");
+			$(this).stop().animate({'opacity': 0 }, "easeInOut");
+			return false;
+		});
+
+		$(window).scroll(function() {
+			var sd = $(window).scrollTop();
+			if(typeof document.body.style.maxHeight === "undefined") {
+				toTop.css({
+					'position': 'absolute',
+					'top': sd + $(window).height() - 50
+				});
+			}
+			if ( sd > 200 ) 
+				toTop.stop().animate({'opacity': 1 }, "easeInOut");
+			else 
+				toTop.stop().animate({'opacity': 0 }, "easeInOut");
+		});		
 	}
 }
